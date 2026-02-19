@@ -47,9 +47,9 @@ const LocationPage = () => {
         <div className="container mx-auto max-w-6xl px-4 py-20 md:py-28">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="mb-8">
-            <ol className="flex items-center gap-2 text-sm text-muted-foreground" itemScope itemType="https://schema.org/BreadcrumbList">
+            <ol className="flex items-center gap-2 text-sm text-secondary-foreground/60" itemScope itemType="https://schema.org/BreadcrumbList">
               <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <Link to="/" itemProp="item" className="hover:text-primary"><span itemProp="name">Startseite</span></Link>
+                <Link to="/" itemProp="item" className="hover:text-primary text-secondary-foreground/70"><span itemProp="name">Startseite</span></Link>
                 <meta itemProp="position" content="1" />
               </li>
               <ChevronRight className="h-3 w-3" />
@@ -68,7 +68,7 @@ const LocationPage = () => {
             <h1 className="mt-4 font-heading text-4xl font-bold text-secondary-foreground md:text-5xl lg:text-6xl">
               {location.headline}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
+            <p className="mt-6 max-w-2xl text-lg text-secondary-foreground/75">
               {location.description}
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -154,7 +154,7 @@ const LocationPage = () => {
             <h2 className="font-heading text-3xl font-bold text-secondary-foreground md:text-4xl">
               Jetzt Beratung für {location.city} sichern
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
+            <p className="mx-auto mt-4 max-w-xl text-secondary-foreground/75">
               Kostenlose Erstberatung – individuelles Angebot innerhalb von 24 Stunden. 
               Wir freuen uns auf Ihr Projekt!
             </p>

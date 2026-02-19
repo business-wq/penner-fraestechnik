@@ -33,7 +33,7 @@ const ParallaxCTA = () => {
             Bereit für Ihre eigene{" "}
             <span className="text-gradient-gold">Solaranlage</span>?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-xl text-lg text-secondary-foreground/75">
             Komplette Planung und Installation aus einer Hand. Starten Sie jetzt
             und sparen Sie langfristig Stromkosten.
           </p>

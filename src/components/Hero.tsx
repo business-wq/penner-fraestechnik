@@ -45,7 +45,7 @@ const Hero = () => {
             <span className="text-gradient-gold">Kirchheim unter Teck</span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-secondary-foreground/75 sm:text-xl">
             Qualitätsprodukte, Top-Service und unschlagbare Preise. Erleben Sie
             die Freiheit, Ihren eigenen Strom zu erzeugen!
           </p>
@@ -62,7 +62,7 @@ const Hero = () => {
             </Button>
           </div>
 
-          <p className="mt-6 text-sm text-muted-foreground">
+          <p className="mt-6 text-sm text-secondary-foreground/60">
             ✓ Angebot innerhalb 24 Std. · ✓ Montage in wenigen Wochen · ✓ Alles aus einer Hand
           </p>
         </motion.div>

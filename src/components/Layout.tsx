@@ -48,7 +48,7 @@ const Navbar = () => {
               className={`text-sm font-medium transition-colors ${
                 solid
                   ? "text-muted-foreground hover:text-foreground"
-                  : "text-muted-foreground hover:text-secondary-foreground"
+                  : "text-secondary-foreground/80 hover:text-secondary-foreground"
               }`}
             >
               {link.label}
