@@ -1,15 +1,16 @@
 import { Sun, Phone, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-border/10 bg-secondary/80 backdrop-blur-md">
       <div className="container mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <a href="#" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <Sun className="h-7 w-7 text-primary" />
           <span className="font-heading text-xl font-bold text-secondary-foreground">
             MARKLEWITZ <span className="text-primary">SOLAR</span>
           </span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-6 md:flex">
           <a href="#ablauf" className="text-sm font-medium text-muted-foreground transition-colors hover:text-secondary-foreground">
