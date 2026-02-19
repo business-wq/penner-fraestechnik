@@ -49,7 +49,7 @@ const ContactSection = () => {
               Jetzt kostenloses{" "}
               <span className="text-gradient-gold">Erstgespräch</span> sichern
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-4 text-lg text-secondary-foreground/75">
               Lassen Sie sich unverbindlich beraten. Wir melden uns innerhalb der 
               Öffnungszeiten persönlich bei Ihnen.
             </p>
@@ -63,7 +63,7 @@ const ContactSection = () => {
                   <Phone className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Direkt anrufen</p>
+                  <p className="text-sm text-secondary-foreground/60">Direkt anrufen</p>
                   <p className="font-heading text-lg font-bold text-secondary-foreground">
                     0162-7382351
                   </p>
@@ -80,7 +80,7 @@ const ContactSection = () => {
                   <Calendar className="h-5 w-5 text-solar-blue" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Wunschtermin</p>
+                  <p className="text-sm text-secondary-foreground/60">Wunschtermin</p>
                   <p className="font-heading text-lg font-bold text-secondary-foreground">
                     Online Termin buchen
                   </p>
@@ -97,7 +97,7 @@ const ContactSection = () => {
                   <MessageCircle className="h-5 w-5 text-solar-green" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">WhatsApp</p>
+                  <p className="text-sm text-secondary-foreground/60">WhatsApp</p>
                   <p className="font-heading text-lg font-bold text-secondary-foreground">
                     Über WhatsApp chatten
                   </p>
@@ -109,11 +109,11 @@ const ContactSection = () => {
                   <MapPin className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Standort</p>
+                   <p className="text-sm text-secondary-foreground/60">Standort</p>
                   <p className="font-heading font-bold text-secondary-foreground">
                     73277 Owen an der Teck
                   </p>
-                  <p className="text-sm text-muted-foreground">Baden-Württemberg</p>
+                   <p className="text-sm text-secondary-foreground/60">Baden-Württemberg</p>
                 </div>
               </div>
             </div>
