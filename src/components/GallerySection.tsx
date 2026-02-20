@@ -1,4 +1,7 @@
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import solarInstallation from "@/assets/solar-installation.jpg";
 import solarCompleted from "@/assets/solar-completed.jpg";
 import solarAerial from "@/assets/solar-aerial.jpg";
@@ -49,6 +52,20 @@ const GallerySection = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-10 text-center"
+        >
+          <Button variant="outline" size="lg" asChild>
+            <Link to="/galerie">
+              Alle Projekte ansehen
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
