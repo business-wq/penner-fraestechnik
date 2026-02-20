@@ -35,6 +35,9 @@ const Navbar = () => {
             alt="Marklewitz Solar Logo"
             className={`w-auto object-contain transition-all duration-300 ${solid ? "h-8" : "h-10"}`}
           />
+          <span className={`font-heading text-xl font-bold transition-colors duration-300 ${solid ? "text-foreground" : "text-secondary-foreground"}`}>
+            MARKLEWITZ <span className="text-primary">SOLAR</span>
+          </span>
         </Link>
 
         <div className="hidden items-center gap-6 md:flex">
@@ -91,6 +94,9 @@ const Footer = () => {
           <div>
             <Link to="/" className="flex items-center gap-2">
               <img src={logo} alt="Marklewitz Solar Logo" className="h-8 w-auto object-contain" />
+              <span className="font-heading text-lg font-bold text-foreground">
+                MARKLEWITZ <span className="text-primary">SOLAR</span>
+              </span>
             </Link>
             <p className="mt-3 text-sm text-muted-foreground">
               Ihr Experte für Photovoltaik in Kirchheim unter Teck und Umgebung.
