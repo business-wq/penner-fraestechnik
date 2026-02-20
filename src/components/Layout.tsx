@@ -1,7 +1,8 @@
-import { Sun, Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import logo from "@/assets/logo.avif";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -29,10 +30,11 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex max-w-6xl items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
-          <Sun className={`h-7 w-7 text-primary transition-transform duration-300 ${solid ? "scale-90" : ""}`} />
-          <span className={`font-heading text-xl font-bold transition-colors duration-300 ${solid ? "text-foreground" : "text-secondary-foreground"}`}>
-            MARKLEWITZ <span className="text-primary">SOLAR</span>
-          </span>
+          <img
+            src={logo}
+            alt="Marklewitz Solar Logo"
+            className={`w-auto object-contain transition-all duration-300 ${solid ? "h-8" : "h-10"}`}
+          />
         </Link>
 
         <div className="hidden items-center gap-6 md:flex">
@@ -88,10 +90,7 @@ const Footer = () => {
         <div className="grid gap-8 md:grid-cols-3">
           <div>
             <Link to="/" className="flex items-center gap-2">
-              <Sun className="h-6 w-6 text-primary" />
-              <span className="font-heading text-lg font-bold text-foreground">
-                MARKLEWITZ SOLAR
-              </span>
+              <img src={logo} alt="Marklewitz Solar Logo" className="h-8 w-auto object-contain" />
             </Link>
             <p className="mt-3 text-sm text-muted-foreground">
               Ihr Experte für Photovoltaik in Kirchheim unter Teck und Umgebung.
