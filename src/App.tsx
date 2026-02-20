@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
 import LocationPage from "./pages/LocationPage";
+import Galerie from "./pages/Galerie";
 import NotFound from "./pages/NotFound";
 import CookieBanner from "./components/CookieBanner";
 
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
+          <Route path="/galerie" element={<Galerie />} />
           <Route path="/:slug" element={<LocationPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
