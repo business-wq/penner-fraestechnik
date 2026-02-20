@@ -38,22 +38,27 @@ const Navbar = () => {
         <div className="hidden items-center gap-6 md:flex">
           {[
             { href: "/#ablauf", label: "Ablauf" },
-            { href: "/#referenzen", label: "Referenzen" },
+            { href: "/galerie", label: "Galerie" },
             { href: "/#kundenstimmen", label: "Kundenstimmen" },
             { href: "/#standorte", label: "Standorte" },
-          ].map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`text-sm font-medium transition-colors ${
-                solid
-                  ? "text-muted-foreground hover:text-foreground"
-                  : "text-secondary-foreground/80 hover:text-secondary-foreground"
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
+          ].map((link) => {
+            const isInternal = link.href.startsWith("/") && !link.href.startsWith("/#");
+            const Component = isInternal ? Link : "a";
+            const props = isInternal ? { to: link.href } : { href: link.href };
+            return (
+              <Component
+                key={link.href}
+                {...(props as any)}
+                className={`text-sm font-medium transition-colors ${
+                  solid
+                    ? "text-muted-foreground hover:text-foreground"
+                    : "text-secondary-foreground/80 hover:text-secondary-foreground"
+                }`}
+              >
+                {link.label}
+              </Component>
+            );
+          })}
           <a
             href="/#kontakt"
             className="inline-flex items-center gap-2 rounded-lg bg-gradient-solar px-4 py-2 text-sm font-semibold text-primary-foreground shadow-solar transition-all hover:scale-105"
