@@ -6,22 +6,56 @@ const testimonials = [
     name: "Peter Greiner",
     text: "Herzlichen Dank an Herrn Marklewitz, der die Planung professionell und kompetent durchgeführt hat. Die Kommunikation war sehr angenehm, die Installation lief reibungslos und zügig. Die Anlage funktioniert einwandfrei – großes Lob!",
     rating: 5,
+    date: "2025-09-15",
   },
   {
     name: "Kristina Soldo",
     text: "Ganz großes Lob an Sven Marklewitz! Planung und Ablauf wurden im Vorfeld gut erklärt. Die PV-Anlage wurde innerhalb weniger Wochen geliefert und montiert. Von der Planung bis zur Fertigstellung alles top!",
     rating: 5,
+    date: "2025-11-02",
   },
   {
     name: "Daniela Denk",
     text: "Sehr zufrieden! Ein sehr guter Berater, der mich persönlich durch die gesamte Planung gesteuert und unterstützt hat. Kann ich nur weiterempfehlen.",
     rating: 5,
+    date: "2026-01-20",
   },
 ];
+
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://www.marklewitz-solar.de/#business",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "3",
+    "bestRating": "5",
+    "worstRating": "1",
+  },
+  "review": testimonials.map((t) => ({
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": String(t.rating),
+      "bestRating": "5",
+    },
+    "author": {
+      "@type": "Person",
+      "name": t.name,
+    },
+    "reviewBody": t.text,
+    "datePublished": t.date,
+  })),
+};
 
 const TestimonialsSection = () => {
   return (
     <section id="kundenstimmen" className="py-20 md:py-28">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
+      />
       <div className="container mx-auto max-w-6xl px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -254,27 +254,6 @@ const LocationPage = () => {
               {
                 "@type": "LocalBusiness",
                 "@id": "https://www.marklewitz-solar.de/#business",
-                "name": "Marklewitz Solar",
-                "url": "https://www.marklewitz-solar.de",
-                "telephone": "+4916273823510",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "Gartenstraße 43/1",
-                  "addressLocality": "Owen an der Teck",
-                  "postalCode": "73277",
-                  "addressRegion": "Baden-Württemberg",
-                  "addressCountry": "DE",
-                },
-                "areaServed": {
-                  "@type": "City",
-                  "name": location.city,
-                },
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "5.0",
-                  "reviewCount": "7",
-                  "bestRating": "5",
-                },
               },
             ],
           }),
