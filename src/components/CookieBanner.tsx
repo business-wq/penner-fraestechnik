@@ -4,23 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Shield, Settings, X } from "lucide-react";
 import { Link } from "react-router-dom";
-
-interface CookiePreferences {
-  necessary: boolean;
-  analytics: boolean;
-  marketing: boolean;
-}
-
-const COOKIE_KEY = "marklewitz_cookie_consent";
-
-const getStoredConsent = (): CookiePreferences | null => {
-  try {
-    const stored = localStorage.getItem(COOKIE_KEY);
-    return stored ? JSON.parse(stored) : null;
-  } catch {
-    return null;
-  }
-};
+import {
+  type CookiePreferences,
+  getStoredConsent,
+  setStoredConsent,
+  applyConsent,
+} from "@/lib/cookie-consent";
 
 const CookieBanner = () => {
   const [visible, setVisible] = useState(false);
@@ -33,15 +22,31 @@ const CookieBanner = () => {
 
   useEffect(() => {
     const consent = getStoredConsent();
-    if (!consent) {
-      // Small delay so it doesn't flash immediately
+    if (consent) {
+      // Apply previously saved consent on load
+      applyConsent(consent);
+    } else {
       const timer = setTimeout(() => setVisible(true), 1500);
       return () => clearTimeout(timer);
     }
   }, []);
 
+  // Listen for custom event to reopen banner
+  useEffect(() => {
+    const handler = () => {
+      const consent = getStoredConsent();
+      if (consent) {
+        setPreferences(consent);
+      }
+      setShowSettings(true);
+      setVisible(true);
+    };
+    window.addEventListener("open-cookie-settings", handler);
+    return () => window.removeEventListener("open-cookie-settings", handler);
+  }, []);
+
   const saveConsent = (prefs: CookiePreferences) => {
-    localStorage.setItem(COOKIE_KEY, JSON.stringify(prefs));
+    setStoredConsent(prefs);
     setVisible(false);
     setShowSettings(false);
   };
@@ -70,7 +75,6 @@ const CookieBanner = () => {
         >
           <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card shadow-2xl">
             {!showSettings ? (
-              /* Main Banner */
               <div className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent">
@@ -100,25 +104,16 @@ const CookieBanner = () => {
                     Einstellungen
                   </button>
                   <div className="flex gap-3">
-                    <Button
-                      variant="outline"
-                      onClick={rejectAll}
-                      className="flex-1 sm:flex-none"
-                    >
+                    <Button variant="outline" onClick={rejectAll} className="flex-1 sm:flex-none">
                       Alle ablehnen
                     </Button>
-                    <Button
-                      variant="solar"
-                      onClick={acceptAll}
-                      className="flex-1 sm:flex-none"
-                    >
+                    <Button variant="solar" onClick={acceptAll} className="flex-1 sm:flex-none">
                       Alle akzeptieren
                     </Button>
                   </div>
                 </div>
               </div>
             ) : (
-              /* Settings Panel */
               <div className="p-6">
                 <div className="flex items-center justify-between">
                   <h3 className="font-heading text-lg font-bold text-foreground">
@@ -133,7 +128,6 @@ const CookieBanner = () => {
                 </div>
 
                 <div className="mt-6 space-y-5">
-                  {/* Necessary */}
                   <div className="flex items-center justify-between rounded-xl border border-border bg-muted/50 p-4">
                     <div>
                       <p className="font-heading font-bold text-foreground">Notwendig</p>
@@ -144,7 +138,6 @@ const CookieBanner = () => {
                     <Switch checked disabled className="opacity-60" />
                   </div>
 
-                  {/* Analytics */}
                   <div className="flex items-center justify-between rounded-xl border border-border p-4">
                     <div>
                       <p className="font-heading font-bold text-foreground">Analyse & Statistik</p>
@@ -160,7 +153,6 @@ const CookieBanner = () => {
                     />
                   </div>
 
-                  {/* Marketing */}
                   <div className="flex items-center justify-between rounded-xl border border-border p-4">
                     <div>
                       <p className="font-heading font-bold text-foreground">Marketing</p>
@@ -178,18 +170,10 @@ const CookieBanner = () => {
                 </div>
 
                 <div className="mt-6 flex gap-3">
-                  <Button
-                    variant="outline"
-                    onClick={rejectAll}
-                    className="flex-1"
-                  >
+                  <Button variant="outline" onClick={rejectAll} className="flex-1">
                     Nur notwendige
                   </Button>
-                  <Button
-                    variant="solar"
-                    onClick={saveCustom}
-                    className="flex-1"
-                  >
+                  <Button variant="solar" onClick={saveCustom} className="flex-1">
                     Auswahl speichern
                   </Button>
                 </div>
