@@ -124,6 +124,12 @@ const Footer = () => {
             <div className="mt-3 space-y-2 text-sm text-muted-foreground">
               <Link to="/impressum" className="block hover:text-foreground">Impressum</Link>
               <Link to="/datenschutz" className="block hover:text-foreground">Datenschutzerklärung</Link>
+              <button
+                onClick={() => window.dispatchEvent(new Event("open-cookie-settings"))}
+                className="block hover:text-foreground text-left"
+              >
+                Cookie-Einstellungen
+              </button>
             </div>
           </div>
         </div>
