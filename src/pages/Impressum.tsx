@@ -37,7 +37,7 @@ const Impressum = () => {
               <h2 className="font-heading text-xl font-bold text-foreground">Umsatzsteuer-ID</h2>
               <p className="mt-3 text-muted-foreground leading-relaxed">
                 Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-                Kleinunternehmer gemäß § 19 UStG – es wird keine Umsatzsteuer ausgewiesen.
+                wird beantragt
               </p>
             </section>
 
