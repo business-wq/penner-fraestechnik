@@ -248,6 +248,51 @@ const Datenschutz = () => {
                 Browsers aktivieren. Bei der Deaktivierung von Cookies kann die Funktionalität dieser
                 Website eingeschränkt sein.
               </p>
+
+              <h3 className="mt-6 font-heading text-lg font-bold text-foreground">Verwendete Cookies auf dieser Website</h3>
+              <p className="mt-2 text-muted-foreground leading-relaxed">
+                Auf unserer Website setzen wir folgende Kategorien von Cookies ein. Über unseren
+                Cookie-Banner können Sie Ihre Einwilligung jederzeit anpassen oder widerrufen.
+              </p>
+
+              <div className="mt-4 overflow-x-auto">
+                <table className="w-full text-sm border border-border rounded-lg">
+                  <thead>
+                    <tr className="bg-muted">
+                      <th className="text-left p-3 font-bold text-foreground border-b border-border">Kategorie</th>
+                      <th className="text-left p-3 font-bold text-foreground border-b border-border">Zweck</th>
+                      <th className="text-left p-3 font-bold text-foreground border-b border-border">Anbieter</th>
+                      <th className="text-left p-3 font-bold text-foreground border-b border-border">Speicherdauer</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-border">
+                      <td className="p-3 text-foreground font-medium">Notwendig</td>
+                      <td className="p-3 text-muted-foreground">Speicherung Ihrer Cookie-Einstellungen</td>
+                      <td className="p-3 text-muted-foreground">Marklewitz Solar (localStorage)</td>
+                      <td className="p-3 text-muted-foreground">Unbegrenzt / bis zur manuellen Löschung</td>
+                    </tr>
+                    <tr className="border-b border-border">
+                      <td className="p-3 text-foreground font-medium">Analyse</td>
+                      <td className="p-3 text-muted-foreground">Statistische Auswertung des Nutzerverhaltens zur Verbesserung unserer Website</td>
+                      <td className="p-3 text-muted-foreground">Google Analytics (Google Ireland Ltd.)</td>
+                      <td className="p-3 text-muted-foreground">bis zu 2 Jahre</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 text-foreground font-medium">Marketing</td>
+                      <td className="p-3 text-muted-foreground">Messung der Wirksamkeit von Werbeanzeigen und Remarketing</td>
+                      <td className="p-3 text-muted-foreground">Meta Pixel (Meta Platforms Ireland Ltd.)</td>
+                      <td className="p-3 text-muted-foreground">bis zu 90 Tage</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p className="mt-4 text-muted-foreground leading-relaxed">
+                Die Analyse- und Marketing-Cookies werden erst nach Ihrer ausdrücklichen Einwilligung
+                über unseren Cookie-Banner geladen. Sie können Ihre Einstellungen jederzeit über den
+                Link „Cookie-Einstellungen" im Footer dieser Website ändern.
+              </p>
             </section>
 
             <section className="mt-8">
