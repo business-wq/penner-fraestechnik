@@ -34,6 +34,37 @@ const Impressum = () => {
             </section>
 
             <section className="mt-8">
+              <h2 className="font-heading text-xl font-bold text-foreground">Umsatzsteuer-ID</h2>
+              <p className="mt-3 text-muted-foreground leading-relaxed">
+                Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
+                Kleinunternehmer gemäß § 19 UStG – es wird keine Umsatzsteuer ausgewiesen.
+              </p>
+            </section>
+
+            <section className="mt-8">
+              <h2 className="font-heading text-xl font-bold text-foreground">
+                Redaktionell verantwortlich
+              </h2>
+              <p className="mt-3 text-muted-foreground leading-relaxed">
+                Sven Marklewitz<br />
+                Gartenstraße 43/1<br />
+                73277 Owen an der Teck
+              </p>
+            </section>
+
+            <section className="mt-8">
+              <h2 className="font-heading text-xl font-bold text-foreground">EU-Streitschlichtung</h2>
+              <p className="mt-3 text-muted-foreground leading-relaxed">
+                Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
+                <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                  https://ec.europa.eu/consumers/odr/
+                </a>
+                <br />
+                Unsere E-Mail-Adresse finden Sie oben im Impressum.
+              </p>
+            </section>
+
+            <section className="mt-8">
               <h2 className="font-heading text-xl font-bold text-foreground">
                 Verbraucherstreitbeilegung / Universalschlichtungsstelle
               </h2>
