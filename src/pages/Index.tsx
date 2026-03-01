@@ -12,7 +12,7 @@ import SEOHead from "@/components/SEOHead";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <SEOHead
         title="Photovoltaik Kirchheim unter Teck | Marklewitz Solar"
         description="Solaranlagen & Photovoltaik in Kirchheim unter Teck, Owen, Nürtingen & Esslingen. ✓ Komplettservice ✓ Angebot in 24h ✓ Top-Preise. Jetzt kostenlos beraten lassen!"
