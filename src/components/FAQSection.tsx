@@ -2,44 +2,44 @@ import { motion } from "framer-motion";
 
 const faqs = [
   {
-    q: "Was kostet eine Photovoltaikanlage in Kirchheim unter Teck?",
-    a: "Die Kosten für eine Photovoltaikanlage liegen in der Region Kirchheim unter Teck typischerweise zwischen 2.400 und 2.550 € pro kWp (Kilowatt Peak). Für ein Einfamilienhaus mit 8–10 kWp rechnen Sie mit ca. 18.000–25.000 €, je nach Modulwahl und Dachbeschaffenheit. Auf Wunsch integrieren wir auch einen Stromspeicher. Kontaktieren Sie uns für ein kostenloses, individuelles Angebot innerhalb von 24 Stunden.",
+    q: "Was kostet eine Photovoltaikanlage?",
+    a: "Die Kosten hängen von Dachgröße, Modulwahl und gewünschter Leistung ab. Kontaktieren Sie uns für ein kostenloses, individuelles Angebot innerhalb von 24 Stunden.",
   },
   {
     q: "Wie lange dauert die Installation?",
-    a: "Die Montage erfolgt in der Regel innerhalb weniger Wochen nach Auftragserteilung. Die eigentliche Installation auf dem Dach dauert meist nur 1–2 Tage. Die anschließende Anmeldung beim Netzbetreiber und Inbetriebnahme nehmen weitere 2–4 Wochen in Anspruch.",
+    a: "Die Montage auf dem Dach dauert meist nur 1–2 Tage. Die Anmeldung beim Netzbetreiber und Inbetriebnahme nehmen anschließend noch einige Wochen in Anspruch.",
   },
   {
-    q: "Welche Förderungen gibt es für Photovoltaik 2026?",
-    a: "Für 2026 gelten folgende Fördermöglichkeiten: KfW-Kredit 270 (Erneuerbare Energien – Standard) mit günstigen Zinsen, Einspeisevergütung nach EEG für eingespeisten Strom, sowie Steuerbefreiung für Anlagen bis 30 kWp auf Einfamilienhäusern. Zusätzlich bieten einige Kommunen eigene Förderprogramme an. Wir beraten Sie kostenlos zu allen aktuellen Fördermöglichkeiten in Ihrer Gemeinde.",
+    q: "Welche Förderungen gibt es für Photovoltaik?",
+    a: "Für Photovoltaikanlagen entfällt die Mehrwertsteuer beim Kauf. Zusätzlich erhalten Sie eine Einspeisevergütung für den ins Netz eingespeisten Strom. Wir beraten Sie gerne zu den Details.",
   },
   {
-    q: "Lohnt sich Photovoltaik 2026 noch?",
-    a: "Ja, Photovoltaik lohnt sich 2026 mehr denn je: Mit einem Eigenverbrauchsanteil von 30–50 % und einem Strompreis von über 30 Ct/kWh amortisiert sich eine Anlage in der Region Kirchheim unter Teck typischerweise in 8–12 Jahren – bei einer Lebensdauer von 25–30 Jahren. Baden-Württemberg mit ca. 1.143–1.223 kWh/m² Jahreseinstrahlung bietet sehr gute Erträge. Mit einem Speicher steigt die Wirtschaftlichkeit nochmals deutlich.",
+    q: "Lohnt sich Photovoltaik noch?",
+    a: "Ja, durch steigende Strompreise und den hohen Eigenverbrauchsanteil amortisiert sich eine Anlage in überschaubarer Zeit – bei einer Lebensdauer von über 25 Jahren. Mit einem Speicher steigt die Wirtschaftlichkeit nochmals.",
   },
   {
     q: "Was ist eine Drohnenaufnahme und wozu wird sie genutzt?",
-    a: "Bei Marklewitz Solar nutzen wir professionelle Drohnen für die präzise Dachvermessung vor der Planung Ihrer Solaranlage. Das Drohnen-Aufmaß liefert exakte Dachabmessungen, Neigungswinkel und Ausrichtungsdaten – ohne Betreten des Daches. So können wir Ihre Anlage millimetergenau planen, den optimalen Ertrag berechnen und Kosten exakter kalkulieren. Dieser Service ist bei uns im Planungspaket inklusive.",
+    a: "Wir nutzen Drohnen für die präzise Dachvermessung – ohne Betreten des Daches. So planen wir Ihre Anlage optimal und berechnen den bestmöglichen Ertrag. Dieser Service ist bei uns inklusive.",
   },
   {
     q: "In welchen Städten sind Sie tätig?",
-    a: "Wir betreuen die gesamte Region im 50-km-Radius um Owen an der Teck: Kirchheim unter Teck, Owen, Nürtingen, Esslingen am Neckar, Weilheim an der Teck, Notzingen, Wendlingen am Neckar, Dettingen unter Teck, Lenningen, Plochingen und viele weitere Gemeinden im Landkreis Esslingen und darüber hinaus.",
+    a: "Wir betreuen die gesamte Region rund um Owen an der Teck: Kirchheim, Nürtingen, Esslingen, Weilheim, Wendlingen, Dettingen, Lenningen, Plochingen und viele weitere Gemeinden.",
   },
   {
     q: "Übernehmen Sie die Anmeldung beim Netzbetreiber?",
-    a: "Ja, die Anmeldung beim Netzbetreiber sowie die komplette Einweisung in Ihre neue Anlage sind selbstverständlich Teil unseres Rundum-Service. Wir kümmern uns um den gesamten Papierkram – vom Netzanschluss bis zur EEG-Anmeldung im Marktstammdatenregister.",
+    a: "Ja, wir kümmern uns um den gesamten Papierkram – vom Netzanschluss bis zur EEG-Anmeldung. Das ist Teil unseres Rundum-Service.",
   },
   {
     q: "Bieten Sie auch Stromspeicher an?",
-    a: "Ja, wir bieten passende Speicherlösungen für Ihre PV-Anlage an. Die Speichergröße wird individuell auf Ihren Verbrauch und Ihre Anlage abgestimmt. Mit einem Speicher erhöhen Sie Ihren Eigenverbrauchsanteil deutlich – typisch von 30 % auf 60–80 % – und werden unabhängiger vom Netz.",
+    a: "Ja, wir bieten passende Speicherlösungen an. Mit einem Speicher erhöhen Sie Ihren Eigenverbrauch deutlich und werden unabhängiger vom Netz.",
   },
   {
-    q: "Was passiert nach der Installation – bieten Sie Wartung an?",
-    a: "Wir sind auch nach der Installation für Sie da. Wir bieten Einweisung und Erklärung der Anlage direkt nach Inbetriebnahme sowie Ansprechpartner für Fragen und Störungen. Sprechen Sie uns für konkrete Wartungsvereinbarungen direkt an – als regionaler Anbieter sind wir schnell bei Ihnen vor Ort.",
+    q: "Bieten Sie auch Wartung an?",
+    a: "Wir sind auch nach der Installation für Sie da – mit Einweisung, Ansprechpartner bei Fragen und schnellem Service vor Ort.",
   },
   {
     q: "Wie läuft der Ablauf von Anfrage bis fertige Anlage?",
-    a: "Unser Prozess in 5 Schritten: 1) Kostenloses Erstgespräch (telefonisch oder vor Ort), 2) Drohnenaufnahme & individuelle Planung Ihrer Anlage, 3) Angebot innerhalb von 24 Stunden, 4) Professionelle Montage inkl. Gerüst, Module und elektrischer Anschluss, 5) Anmeldung beim Netzbetreiber, Einweisung und Inbetriebnahme. Unkompliziert, transparent und alles aus einer Hand.",
+    a: "In 5 Schritten: Erstgespräch, Drohnenaufnahme & Planung, Angebot in 24h, professionelle Montage und abschließend Anmeldung & Inbetriebnahme. Alles aus einer Hand.",
   },
 ];
 
