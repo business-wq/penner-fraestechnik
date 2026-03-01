@@ -41,7 +41,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="kontakt" className="bg-gradient-navy py-20 md:py-28">
+    <section id="kontakt" className="overflow-hidden bg-gradient-navy py-20 md:py-28">
       <div className="container mx-auto max-w-6xl px-4">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
 
@@ -138,7 +138,7 @@ const ContactSection = () => {
           >
             <form
               onSubmit={handleSubmit}
-              className="rounded-2xl border border-border/20 bg-card p-8 shadow-card"
+              className="rounded-2xl border border-border/20 bg-card p-5 sm:p-8 shadow-card"
             >
               <div className="mb-6 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-solar-green/15">
