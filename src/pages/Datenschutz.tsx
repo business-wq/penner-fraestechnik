@@ -28,7 +28,7 @@ const Datenschutz = () => {
         description="Datenschutzerklärung von Marklewitz Solar – Informationen zum Umgang mit Ihren personenbezogenen Daten."
       />
       <Navbar />
-      <main className="pt-24 pb-20">
+      <main className="pt-24 pb-20" id="main">
         <div className="container mx-auto max-w-3xl px-4">
           <article>
             <h1 className="font-heading text-4xl font-bold text-foreground">Datenschutzerklärung</h1>
@@ -92,12 +92,24 @@ const Datenschutz = () => {
               <P>
                 Wir hosten die Inhalte unserer Website bei folgendem Anbieter:
               </P>
-              <SubSection title="Externes Hosting">
+              <SubSection title="Externes Hosting (Hostinger)">
                 <P>
-                  Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website
+                  Diese Website wird extern bei Hostinger (HOSTINGER operations, UAB, Švitrigailos str. 34,
+                  03230 Vilnius, Litauen) gehostet. Die personenbezogenen Daten, die auf dieser Website
                   erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v.&nbsp;a.
                   um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten,
                   Namen, Websitezugriffe und sonstige Daten, die über eine Website generiert werden, handeln.
+                </P>
+                <P>
+                  Weitere Informationen zum Datenschutz bei Hostinger finden Sie unter:{" "}
+                  <a
+                    href="https://hostinger.com/de/legal/datenschutz-bestimmungen"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    https://hostinger.com/de/legal/datenschutz-bestimmungen
+                  </a>
                 </P>
                 <P>
                   Das externe Hosting erfolgt zum Zwecke der Vertragserfüllung gegenüber unseren potenziellen
@@ -117,6 +129,10 @@ const Datenschutz = () => {
                   Datenschutzvorschriften sowie dieser Datenschutzerklärung.
                 </P>
                 <P>
+                  Bei Fragen, Bedenken oder dem Verdacht einer Datenschutzverletzung wenden Sie sich bitte
+                  umgehend an uns. Wir nehmen Ihre Anliegen ernst und werden uns zeitnah bei Ihnen melden.
+                </P>
+                <P>
                   Wir weisen darauf hin, dass die Datenübertragung im Internet (z.&nbsp;B. bei der Kommunikation
                   per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem
                   Zugriff durch Dritte ist nicht möglich.
@@ -126,7 +142,7 @@ const Datenschutz = () => {
               <SubSection title="Hinweis zur verantwortlichen Stelle">
                 <P>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</P>
                 <P>
-                  Sven Marklewitz<br />
+                  Marklewitz Solar (Sven Marklewitz, Einzelunternehmer)<br />
                   Gartenstraße 43/1<br />
                   73277 Owen an der Teck
                 </P>
@@ -148,7 +164,7 @@ const Datenschutz = () => {
                 <P>
                   Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt
                   wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die
-                  Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder
+                  Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Verlangen auf Löschung geltend machen oder
                   eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern
                   wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen
                   Daten haben (z.&nbsp;B. steuer- oder handelsrechtliche Aufbewahrungsfristen); im
@@ -189,6 +205,11 @@ const Datenschutz = () => {
                   Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit
                   der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.
                 </P>
+                <P>
+                  Zur Ausübung Ihres Widerrufsrechts oder bei sonstigen Fragen zum Datenschutz kontaktieren
+                  Sie uns bitte unter der oben genannten E-Mail-Adresse oder nutzen Sie die Cookie-Einstellungen
+                  im Footer dieser Website. Wir reagieren auf Ihre Anfragen zeitnah.
+                </P>
               </SubSection>
 
               <SubSection title="Widerspruchsrecht gegen die Datenerhebung in besonderen Fällen (Art. 21 DSGVO)">
@@ -220,6 +241,18 @@ const Datenschutz = () => {
                   Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes. Das
                   Beschwerderecht besteht unbeschadet anderweitiger verwaltungsrechtlicher oder
                   gerichtlicher Rechtsbehelfe.
+                </P>
+                <P>
+                  Die zuständige Aufsichtsbehörde für Baden-Württemberg ist der Landesbeauftragte für den
+                  Datenschutz und die Informationsfreiheit Baden-Württemberg, Königstraße 10a, 70173 Stuttgart.{" "}
+                  <a
+                    href="https://www.baden-wuerttemberg.datenschutz.de/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    https://www.baden-wuerttemberg.datenschutz.de/
+                  </a>
                 </P>
               </SubSection>
 

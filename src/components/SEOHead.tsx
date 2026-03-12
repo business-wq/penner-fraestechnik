@@ -7,9 +7,10 @@ interface SEOHeadProps {
   canonical?: string;
   keywords?: string;
   ogImage?: string;
+  noindex?: boolean;
 }
 
-const SEOHead = ({ title, description, canonical, keywords, ogImage }: SEOHeadProps) => {
+const SEOHead = ({ title, description, canonical, keywords, ogImage, noindex }: SEOHeadProps) => {
   const location = useLocation();
   const fullCanonical = canonical || `https://www.marklewitz-solar.de${location.pathname}`;
   const image = ogImage || "https://www.marklewitz-solar.de/og-image.jpg";
@@ -30,6 +31,7 @@ const SEOHead = ({ title, description, canonical, keywords, ogImage }: SEOHeadPr
 
     setMeta("description", description);
     if (keywords) setMeta("keywords", keywords);
+    setMeta("robots", noindex ? "noindex, nofollow" : "index, follow");
 
     // Open Graph
     setMeta("og:title", title, true);

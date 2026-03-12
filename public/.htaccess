@@ -1,0 +1,25 @@
+# Security Headers für Marklewitz Solar
+<IfModule mod_headers.c>
+  # Verhindert MIME-Type-Sniffing
+  Header set X-Content-Type-Options "nosniff"
+  # Schutz vor Clickjacking
+  Header set X-Frame-Options "SAMEORIGIN"
+  # XSS-Filter im Browser aktivieren
+  Header set X-XSS-Protection "1; mode=block"
+  # Referrer-Informationen einschränken
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  # Permissions Policy (ehemals Feature-Policy)
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  # HTTPS erzwingen (maximale Sicherheit bei SSL)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# SPA-Routing: Alle Anfragen an index.html weiterleiten
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

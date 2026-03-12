@@ -12,6 +12,8 @@ import LocationPage from "./pages/LocationPage";
 import Galerie from "./pages/Galerie";
 import NotFound from "./pages/NotFound";
 import CookieBanner from "./components/CookieBanner";
+import SkipLink from "./components/SkipLink";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const queryClient = new QueryClient();
 
@@ -25,13 +27,15 @@ const ScrollToTop = () => {
 };
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
+  <ErrorBoundary>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <SkipLink />
+          <ScrollToTop />
+          <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
@@ -43,6 +47,7 @@ const App = () => (
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
+  </ErrorBoundary>
 );
 
 export default App;

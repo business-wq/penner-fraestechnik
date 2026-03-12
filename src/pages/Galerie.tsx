@@ -37,6 +37,7 @@ const Galerie = () => {
       />
       <Navbar />
 
+      <main id="main">
       {/* Hero */}
       <section className="bg-gradient-navy pt-24 pb-16">
         <div className="container mx-auto max-w-6xl px-4 text-center">
@@ -153,6 +154,7 @@ const Galerie = () => {
         )}
       </AnimatePresence>
 
+      </main>
       <Footer />
     </div>
   );

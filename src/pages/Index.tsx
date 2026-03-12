@@ -20,7 +20,7 @@ const Index = () => {
         keywords="Photovoltaik Kirchheim unter Teck, Solaranlage Owen, PV-Anlage Nürtingen, Solartechnik Esslingen, Marklewitz Solar"
       />
       <Navbar />
-      <main>
+      <main id="main">
         <Hero />
         <TrustBar />
         <ProcessSection />
