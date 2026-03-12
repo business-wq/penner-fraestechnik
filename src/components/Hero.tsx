@@ -36,7 +36,7 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-4xl"
         >
-          <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-1.5 text-sm font-medium text-primary backdrop-blur-sm">
+          <span className="mb-4 inline-block rounded-full border border-primary/30 bg-black/50 px-4 py-2 text-sm font-semibold text-primary backdrop-blur-md">
             ☀️ Ihr Partner für Solarenergie in der Region
           </span>
 
