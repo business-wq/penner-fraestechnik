@@ -45,7 +45,7 @@ Central data file for all 10 city landing pages. Each entry drives the dynamic r
 - **`public/sitemap.xml`**: Static — update `lastmod` dates and add new URLs manually when adding pages.
 
 ### Design System
-- **Fonts**: `Space Grotesk` (headings, `font-heading`) / `Plus Jakarta Sans` (body)
+- **Fonts**: `Sora` (headings, `font-heading`) / `Source Sans 3` (body)
 - **Primary color**: Solar gold — `hsl(38 92% 50%)` — `text-primary`, `bg-primary`
 - **Custom tokens**: `solar-gold`, `solar-navy`, `solar-green`, `solar-blue` — defined in `src/index.css` CSS variables, consumed via Tailwind (`tailwind.config.ts`)
 - **Gradients**: `bg-gradient-solar`, `bg-gradient-navy`, `text-gradient-gold` — utility classes defined in `src/index.css`

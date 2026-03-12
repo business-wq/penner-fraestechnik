@@ -17,7 +17,7 @@ const TrustBar = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 gap-4 rounded-2xl bg-card p-6 shadow-card md:grid-cols-4 md:gap-8 md:p-8"
+          className="grid grid-cols-2 gap-4 rounded-lg border border-border bg-card p-6 shadow-card md:grid-cols-4 md:gap-8 md:p-8"
         >
           {stats.map((stat, i) => (
             <motion.div

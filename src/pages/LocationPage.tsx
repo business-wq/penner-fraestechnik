@@ -108,7 +108,7 @@ const LocationPage = () => {
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <div className="space-y-4">
                 {location.benefits.map((benefit, i) => (
-                  <div key={i} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+                  <div key={i} className="flex items-start gap-3 rounded-lg border border-border bg-card p-4">
                     <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-solar-green" />
                     <p className="text-foreground">{benefit}</p>
                   </div>
@@ -137,7 +137,7 @@ const LocationPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="rounded-2xl border border-border bg-card p-8"
+                className="rounded-lg border border-border bg-card p-8"
               >
                 <s.icon className="mb-4 h-8 w-8 text-primary" />
                 <h3 className="font-heading text-xl font-bold text-foreground">{s.title}</h3>
@@ -188,7 +188,7 @@ const LocationPage = () => {
               <Link
                 key={loc.slug}
                 to={`/${loc.slug}`}
-                className="group flex items-center justify-between rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/30 hover:shadow-card"
+                className="group flex items-center justify-between rounded-lg border border-border bg-card p-5 transition-all hover:border-primary/20 hover:shadow-card"
               >
                 <div className="flex items-center gap-3">
                   <MapPin className="h-5 w-5 text-primary" />

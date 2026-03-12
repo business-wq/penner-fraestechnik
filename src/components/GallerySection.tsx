@@ -41,7 +41,7 @@ const GallerySection = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group overflow-hidden rounded-2xl"
+              className="group overflow-hidden rounded-lg"
             >
               <img
                 src={img.src}

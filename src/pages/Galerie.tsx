@@ -87,7 +87,7 @@ const Galerie = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3, delay: i * 0.05 }}
-                  className="group relative cursor-pointer overflow-hidden rounded-2xl border border-border bg-card"
+                  className="group relative cursor-pointer overflow-hidden rounded-lg border border-border bg-card"
                   onClick={() => setLightbox(projects.indexOf(project))}
                 >
                   <div className="aspect-square overflow-hidden">
@@ -137,7 +137,7 @@ const Galerie = () => {
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
-              className="max-h-[85vh] max-w-4xl overflow-hidden rounded-2xl"
+              className="max-h-[85vh] max-w-4xl overflow-hidden rounded-lg"
               onClick={(e) => e.stopPropagation()}
             >
               <img

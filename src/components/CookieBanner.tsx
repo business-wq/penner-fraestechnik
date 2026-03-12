@@ -73,12 +73,12 @@ const CookieBanner = () => {
           transition={{ type: "spring", damping: 25, stiffness: 200 }}
           className="fixed bottom-0 left-0 right-0 z-[100] p-4 md:p-6"
         >
-          <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card shadow-2xl">
+          <div className="mx-auto max-w-3xl rounded-lg border border-border bg-card shadow-[0_-4px_24px_-4px_rgba(0,0,0,0.12)]">
             {!showSettings ? (
               <div className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent">
-                    <Shield className="h-5 w-5 text-accent-foreground" />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10">
+                    <Shield className="h-5 w-5 text-primary" />
                   </div>
                   <div className="flex-1">
                     <h3 className="font-heading text-lg font-bold text-foreground">
@@ -128,7 +128,7 @@ const CookieBanner = () => {
                 </div>
 
                 <div className="mt-6 space-y-5">
-                  <div className="flex items-center justify-between rounded-xl border border-border bg-muted/50 p-4">
+                  <div className="flex items-center justify-between rounded-lg border border-border bg-muted/50 p-4">
                     <div>
                       <p className="font-heading font-bold text-foreground">Notwendig</p>
                       <p className="mt-0.5 text-xs text-muted-foreground">
@@ -138,7 +138,7 @@ const CookieBanner = () => {
                     <Switch checked disabled className="opacity-60" />
                   </div>
 
-                  <div className="flex items-center justify-between rounded-xl border border-border p-4">
+                  <div className="flex items-center justify-between rounded-lg border border-border p-4">
                     <div>
                       <p className="font-heading font-bold text-foreground">Analyse & Statistik</p>
                       <p className="mt-0.5 text-xs text-muted-foreground">
@@ -153,7 +153,7 @@ const CookieBanner = () => {
                     />
                   </div>
 
-                  <div className="flex items-center justify-between rounded-xl border border-border p-4">
+                  <div className="flex items-center justify-between rounded-lg border border-border p-4">
                     <div>
                       <p className="font-heading font-bold text-foreground">Marketing</p>
                       <p className="mt-0.5 text-xs text-muted-foreground">

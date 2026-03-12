@@ -67,9 +67,9 @@ const ContactSection = () => {
             <div className="mt-10 space-y-4">
               <a
                 href="tel:+491627382351"
-                className="flex items-center gap-4 rounded-xl border border-border/20 bg-secondary/50 p-4 transition-all hover:bg-secondary/80"
+                className="flex items-center gap-4 rounded-lg border border-border/20 bg-secondary/50 p-4 transition-all hover:bg-secondary/80"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/20">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-primary/20">
                   <Phone className="h-5 w-5 text-primary" />
                 </div>
                 <div>
@@ -84,9 +84,9 @@ const ContactSection = () => {
                 href="https://calendly.com/svenmarklewitz-p9a/15min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 rounded-xl border border-border/20 bg-secondary/50 p-4 transition-all hover:bg-secondary/80"
+                className="flex items-center gap-4 rounded-lg border border-border/20 bg-secondary/50 p-4 transition-all hover:bg-secondary/80"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-solar-blue/20">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-solar-blue/20">
                   <Calendar className="h-5 w-5 text-solar-blue" />
                 </div>
                 <div>
@@ -101,9 +101,9 @@ const ContactSection = () => {
                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hallo Sven! Ich interessiere mich für eine Solaranlage. Bitte meldet euch bei mir. ☀️")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 rounded-xl border border-border/20 bg-secondary/50 p-4 transition-all hover:bg-secondary/80"
+                className="flex items-center gap-4 rounded-lg border border-border/20 bg-secondary/50 p-4 transition-all hover:bg-secondary/80"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-solar-green/20">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-solar-green/20">
                   <MessageCircle className="h-5 w-5 text-solar-green" />
                 </div>
                 <div>
@@ -114,8 +114,8 @@ const ContactSection = () => {
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 rounded-xl border border-border/20 bg-secondary/50 p-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/20">
+              <div className="flex items-center gap-4 rounded-lg border border-border/20 bg-secondary/50 p-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-primary/20">
                   <MapPin className="h-5 w-5 text-primary" />
                 </div>
                 <div>
@@ -138,10 +138,10 @@ const ContactSection = () => {
           >
             <form
               onSubmit={handleSubmit}
-              className="rounded-2xl border border-border/20 bg-card p-5 sm:p-8 shadow-card"
+              className="rounded-lg border border-border/20 bg-card p-5 sm:p-8 shadow-card"
             >
               <div className="mb-6 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-solar-green/15">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-solar-green/15">
                   <MessageCircle className="h-5 w-5 text-solar-green" />
                 </div>
                 <div>

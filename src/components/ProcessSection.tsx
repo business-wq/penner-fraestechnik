@@ -61,11 +61,11 @@ const ProcessSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="group relative rounded-2xl border border-border bg-card p-8 transition-all duration-300 hover:shadow-card hover:border-primary/30"
+              className="group relative rounded-lg border border-border bg-card p-8 transition-all duration-300 hover:shadow-card hover:border-primary/20"
             >
               <div className="flex items-start gap-5">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-accent">
-                  <step.icon className="h-7 w-7 text-accent-foreground" />
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                  <step.icon className="h-7 w-7 text-primary" />
                 </div>
                 <div>
                   <span className="text-sm font-bold text-primary">{step.number}</span>

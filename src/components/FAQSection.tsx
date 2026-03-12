@@ -89,7 +89,7 @@ const FAQSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06 }}
-              className="group rounded-xl border border-border bg-card"
+              className="group rounded-lg border border-border bg-card"
             >
               <summary className="flex cursor-pointer items-center justify-between p-6 font-heading font-bold text-foreground">
                 {faq.q}

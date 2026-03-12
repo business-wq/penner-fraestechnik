@@ -80,7 +80,7 @@ const TestimonialsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="relative rounded-2xl border border-border bg-card p-8 shadow-card"
+              className="relative rounded-lg border border-border bg-card p-8 shadow-card"
             >
               <Quote className="mb-4 h-8 w-8 text-primary/30" />
               <div className="mb-4 flex gap-1">
