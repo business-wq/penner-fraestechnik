@@ -28,6 +28,7 @@ const reviewSchema = {
   "@id": "https://www.marklewitz-solar.de/#business",
   "aggregateRating": {
     "@type": "AggregateRating",
+    "@id": "https://www.marklewitz-solar.de/#aggregateRating",
     "ratingValue": "5.0",
     "reviewCount": "3",
     "bestRating": "5",
