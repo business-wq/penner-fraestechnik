@@ -3,46 +3,45 @@ import { motion } from "framer-motion";
 const faqs = [
   {
     q: "Was kostet eine Photovoltaikanlage?",
-    a: "Die Kosten hängen von Dachgröße, Modulwahl und gewünschter Leistung ab. Kontaktieren Sie uns für ein kostenloses, individuelles Angebot innerhalb von 24 Stunden.",
+    a: "Die Kosten hängen von Dachgröße, Modulwahl und Leistung ab. Kontaktieren Sie uns für ein kostenloses, individuelles Angebot.",
   },
   {
     q: "Wie lange dauert die Installation?",
-    a: "Die Montage auf dem Dach dauert meist nur 1–2 Tage. Die Anmeldung beim Netzbetreiber und Inbetriebnahme nehmen anschließend noch einige Wochen in Anspruch.",
+    a: "Die Montage dauert meist 1–2 Tage. Die Anmeldung beim Netzbetreiber nimmt anschließend noch einige Wochen in Anspruch.",
   },
   {
     q: "Welche Förderungen gibt es für Photovoltaik?",
-    a: "Für Photovoltaikanlagen entfällt die Mehrwertsteuer beim Kauf. Zusätzlich erhalten Sie eine Einspeisevergütung für den ins Netz eingespeisten Strom. Wir beraten Sie gerne zu den Details.",
+    a: "Beim Kauf entfällt die Mehrwertsteuer. Zusätzlich erhalten Sie eine Einspeisevergütung für eingespeisten Strom.",
   },
   {
-    q: "Lohnt sich Photovoltaik noch?",
-    a: "Ja, durch steigende Strompreise und den hohen Eigenverbrauchsanteil amortisiert sich eine Anlage in überschaubarer Zeit – bei einer Lebensdauer von über 25 Jahren. Mit einem Speicher steigt die Wirtschaftlichkeit nochmals.",
+    q: "Bieten Sie auch Wärmepumpen an?",
+    a: "Ja, wir planen und installieren Wärmepumpen – idealerweise in Kombination mit einer PV-Anlage. So heizen Sie mit eigenem Solarstrom.",
+  },
+  {
+    q: "Warum Wärmepumpe und PV kombinieren?",
+    a: "Eine Wärmepumpe nutzt Strom zum Heizen. Mit einer PV-Anlage erzeugen Sie diesen Strom selbst – das senkt Ihre Heizkosten deutlich.",
   },
   {
     q: "Was ist eine Drohnenaufnahme und wozu wird sie genutzt?",
-    a: "Wir nutzen Drohnen für die präzise Dachvermessung – ohne Betreten des Daches. So planen wir Ihre Anlage optimal und berechnen den bestmöglichen Ertrag. Dieser Service ist bei uns inklusive.",
+    a: "Wir nutzen Drohnen für die präzise Dachvermessung – ohne Betreten des Daches. Dieser Service ist bei uns inklusive.",
   },
   {
     q: "In welchen Städten sind Sie tätig?",
-    a: "Wir betreuen die gesamte Region rund um Owen an der Teck: Kirchheim, Nürtingen, Esslingen, Weilheim, Wendlingen, Dettingen, Lenningen, Plochingen und viele weitere Gemeinden.",
+    a: "Wir betreuen die Region rund um Owen an der Teck: Kirchheim, Nürtingen, Esslingen, Weilheim, Wendlingen, Dettingen, Lenningen, Plochingen und weitere Gemeinden.",
   },
   {
     q: "Übernehmen Sie die Anmeldung beim Netzbetreiber?",
-    a: "Ja, wir kümmern uns um den gesamten Papierkram – vom Netzanschluss bis zur EEG-Anmeldung. Das ist Teil unseres Rundum-Service.",
+    a: "Ja, wir kümmern uns um den gesamten Papierkram – vom Netzanschluss bis zur EEG-Anmeldung.",
   },
   {
     q: "Bieten Sie auch Stromspeicher an?",
-    a: "Ja, wir bieten passende Speicherlösungen an. Mit einem Speicher erhöhen Sie Ihren Eigenverbrauch deutlich und werden unabhängiger vom Netz.",
-  },
-  {
-    q: "Bieten Sie auch Wartung an?",
-    a: "Wir sind auch nach der Installation für Sie da – mit Einweisung, Ansprechpartner bei Fragen und schnellem Service vor Ort.",
+    a: "Ja, mit einem Speicher erhöhen Sie Ihren Eigenverbrauch und werden unabhängiger vom Netz.",
   },
   {
     q: "Wie läuft der Ablauf von Anfrage bis fertige Anlage?",
-    a: "In 5 Schritten: Erstgespräch, Drohnenaufnahme & Planung, Angebot in 24h, professionelle Montage und abschließend Anmeldung & Inbetriebnahme. Alles aus einer Hand.",
+    a: "Erstgespräch, Drohnenaufnahme & Planung, Angebot, professionelle Montage und Anmeldung & Inbetriebnahme – alles aus einer Hand.",
   },
 ];
-
 const FAQSection = () => {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -74,10 +73,10 @@ const FAQSection = () => {
             Häufige Fragen
           </span>
           <h2 className="mt-3 font-heading text-3xl font-bold text-foreground md:text-4xl">
-            FAQ – Photovoltaik in Ihrer Region
+            FAQ – Photovoltaik & Wärmepumpe
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Antworten auf die häufigsten Fragen rund um Solaranlagen in Kirchheim unter Teck und Umgebung.
+            Antworten auf die häufigsten Fragen rund um Solaranlagen und Wärmepumpen in der Region.
           </p>
         </motion.div>
 

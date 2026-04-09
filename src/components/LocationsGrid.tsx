@@ -17,7 +17,7 @@ const LocationsGrid = () => {
             Einzugsgebiet
           </span>
           <h2 className="mt-2 font-heading text-2xl font-bold text-foreground md:text-3xl">
-            Photovoltaik in Ihrer Nähe
+            Photovoltaik & Wärmepumpe in Ihrer Nähe
           </h2>
         </motion.div>
 
