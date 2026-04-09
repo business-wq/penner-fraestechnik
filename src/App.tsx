@@ -13,6 +13,7 @@ import Galerie from "./pages/Galerie";
 import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import Waermepumpe from "./pages/Waermepumpe";
 import CookieBanner from "./components/CookieBanner";
 import SkipLink from "./components/SkipLink";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -45,6 +46,7 @@ const App = () => (
             <Route path="/galerie" element={<Galerie />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/waermepumpe" element={<Waermepumpe />} />
             {locations.map((location) => (
               <Route
                 key={location.slug}

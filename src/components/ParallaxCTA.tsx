@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-solar.jpg";
 
@@ -40,6 +41,9 @@ const ParallaxCTA = () => {
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button variant="hero" size="lg" className="px-8 py-6 text-lg" asChild>
               <a href="#kontakt">Jetzt Beratung sichern</a>
+            </Button>
+            <Button variant="heroOutline" size="lg" className="px-8 py-6 text-lg" asChild>
+              <Link to="/waermepumpe">Mehr zu Wärmepumpen</Link>
             </Button>
           </div>
         </motion.div>

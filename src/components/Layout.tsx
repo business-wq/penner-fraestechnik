@@ -43,6 +43,7 @@ const Navbar = () => {
         <div className="hidden items-center gap-6 md:flex">
           {[
             { href: "/#ablauf", label: "Ablauf" },
+            { href: "/waermepumpe", label: "Wärmepumpe" },
             { href: "/galerie", label: "Galerie" },
             { href: "/#kundenstimmen", label: "Kundenstimmen" },
             { href: "/#standorte", label: "Standorte" },
