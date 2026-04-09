@@ -12,6 +12,50 @@ const BlogPost = () => {
 
   if (!post) return <Navigate to="/blog" replace />;
 
+  const renderInlineContent = (text: string) => {
+    const regex = /\[([^\]]+)\]\(([^)]+)\)|\*\*(.+?)\*\*/g;
+    const parts: React.ReactNode[] = [];
+    let lastIndex = 0;
+
+    for (const match of text.matchAll(regex)) {
+      const [fullMatch, linkLabel, linkHref, boldText] = match;
+      const matchIndex = match.index ?? 0;
+
+      if (matchIndex > lastIndex) {
+        parts.push(text.slice(lastIndex, matchIndex));
+      }
+
+      if (linkLabel && linkHref) {
+        const isExternal = linkHref.startsWith("http://") || linkHref.startsWith("https://");
+        parts.push(
+          <a
+            key={`${linkHref}-${matchIndex}`}
+            href={linkHref}
+            className="font-medium text-primary underline-offset-4 hover:underline"
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
+          >
+            {linkLabel}
+          </a>,
+        );
+      } else if (boldText) {
+        parts.push(
+          <strong key={`${boldText}-${matchIndex}`} className="text-foreground">
+            {boldText}
+          </strong>,
+        );
+      }
+
+      lastIndex = matchIndex + fullMatch.length;
+    }
+
+    if (lastIndex < text.length) {
+      parts.push(text.slice(lastIndex));
+    }
+
+    return parts;
+  };
+
   // Simple markdown-like rendering
   const renderContent = (content: string) => {
     return content.split("\n").map((line, i) => {
@@ -32,20 +76,20 @@ const BlogPost = () => {
           return (
             <li key={i} className="ml-4 list-disc text-muted-foreground leading-relaxed">
               <strong className="text-foreground">{match[1]}</strong>
-              {match[2] ? `: ${match[2]}` : ""}
+              {match[2] ? <>: {renderInlineContent(match[2])}</> : ""}
             </li>
           );
         }
         return (
           <li key={i} className="ml-4 list-disc text-muted-foreground leading-relaxed">
-            {trimmed.slice(2)}
+            {renderInlineContent(trimmed.slice(2))}
           </li>
         );
       }
       if (trimmed.startsWith("- "))
         return (
           <li key={i} className="ml-4 list-disc text-muted-foreground leading-relaxed">
-            {trimmed.slice(2)}
+            {renderInlineContent(trimmed.slice(2))}
           </li>
         );
       if (trimmed.startsWith("**") && trimmed.endsWith("**"))
@@ -54,19 +98,9 @@ const BlogPost = () => {
             {trimmed.slice(2, -2)}
           </p>
         );
-      // Bold inline
-      const parts = trimmed.split(/\*\*(.+?)\*\*/g);
       return (
         <p key={i} className="mt-3 text-muted-foreground leading-relaxed">
-          {parts.map((part, j) =>
-            j % 2 === 1 ? (
-              <strong key={j} className="text-foreground">
-                {part}
-              </strong>
-            ) : (
-              part
-            )
-          )}
+          {renderInlineContent(trimmed)}
         </p>
       );
     });
@@ -85,6 +119,7 @@ const BlogPost = () => {
       "@id": "https://www.marklewitz-solar.de/#organization",
     },
     mainEntityOfPage: `https://www.marklewitz-solar.de/blog/${post.slug}`,
+    image: post.image,
   };
 
   return (
@@ -93,6 +128,8 @@ const BlogPost = () => {
         title={post.metaTitle}
         description={post.metaDescription}
         canonical={`https://www.marklewitz-solar.de/blog/${post.slug}`}
+        keywords={post.keywords}
+        ogImage={post.image}
       />
       <script
         type="application/ld+json"
@@ -126,6 +163,16 @@ const BlogPost = () => {
             <h1 className="mt-4 font-heading text-3xl font-bold text-foreground md:text-4xl">
               {post.title}
             </h1>
+
+            {post.image && (
+              <div className="mt-8 overflow-hidden rounded-xl border border-border bg-card shadow-card">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="h-72 w-full object-cover md:h-[26rem]"
+                />
+              </div>
+            )}
 
             <div className="mt-8 prose-custom">
               {renderContent(post.content)}

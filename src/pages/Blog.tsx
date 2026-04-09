@@ -39,31 +39,43 @@ const Blog = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="group rounded-lg border border-border bg-card p-6 sm:p-8 transition-all hover:shadow-card hover:border-primary/20"
+                className="group overflow-hidden rounded-lg border border-border bg-card transition-all hover:border-primary/20 hover:shadow-card"
               >
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Calendar className="h-4 w-4" />
-                  {new Date(post.date).toLocaleDateString("de-DE", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </div>
-                <h2 className="mt-3 font-heading text-xl font-bold text-foreground sm:text-2xl">
-                  <Link to={`/blog/${post.slug}`} className="hover:text-primary transition-colors">
-                    {post.title}
+                {post.image && (
+                  <Link to={`/blog/${post.slug}`} className="block overflow-hidden">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
                   </Link>
-                </h2>
-                <p className="mt-3 text-muted-foreground leading-relaxed">
-                  {post.excerpt}
-                </p>
-                <Link
-                  to={`/blog/${post.slug}`}
-                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
-                >
-                  Weiterlesen
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+                )}
+                <div className="p-6 sm:p-8">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Calendar className="h-4 w-4" />
+                    {new Date(post.date).toLocaleDateString("de-DE", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}
+                  </div>
+                  <h2 className="mt-3 font-heading text-xl font-bold text-foreground sm:text-2xl">
+                    <Link to={`/blog/${post.slug}`} className="hover:text-primary transition-colors">
+                      {post.title}
+                    </Link>
+                  </h2>
+                  <p className="mt-3 text-muted-foreground leading-relaxed">
+                    {post.excerpt}
+                  </p>
+                  <Link
+                    to={`/blog/${post.slug}`}
+                    className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+                  >
+                    Weiterlesen
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
               </motion.article>
             ))}
           </div>
