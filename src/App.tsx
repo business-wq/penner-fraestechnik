@@ -14,6 +14,7 @@ import NotFound from "./pages/NotFound";
 import CookieBanner from "./components/CookieBanner";
 import SkipLink from "./components/SkipLink";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { locations } from "./data/locations";
 
 const queryClient = new QueryClient();
 
@@ -36,13 +37,19 @@ const App = () => (
           <SkipLink />
           <ScrollToTop />
           <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/impressum" element={<Impressum />} />
-          <Route path="/datenschutz" element={<Datenschutz />} />
-          <Route path="/galerie" element={<Galerie />} />
-          <Route path="/:slug" element={<LocationPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/impressum" element={<Impressum />} />
+            <Route path="/datenschutz" element={<Datenschutz />} />
+            <Route path="/galerie" element={<Galerie />} />
+            {locations.map((location) => (
+              <Route
+                key={location.slug}
+                path={`/${location.slug}`}
+                element={<LocationPage />}
+              />
+            ))}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         <CookieBanner />
       </BrowserRouter>
     </TooltipProvider>

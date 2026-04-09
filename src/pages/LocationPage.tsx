@@ -4,7 +4,8 @@ import { MapPin, Phone, CheckCircle, ArrowRight, ChevronRight, Sun, Calendar, Me
 import { Button } from "@/components/ui/button";
 import { Navbar, Footer } from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import { locations, type LocationData } from "@/data/locations";
+import { locations } from "@/data/locations";
+import NotFound from "./NotFound";
 import heroImage from "@/assets/hero-solar.jpg";
 
 const LocationPage = () => {
@@ -12,18 +13,7 @@ const LocationPage = () => {
   const location = locations.find((l) => l.slug === slug);
 
   if (!location) {
-    return (
-      <div className="flex min-h-screen flex-col">
-        <Navbar />
-        <main id="main" className="flex flex-1 items-center justify-center pt-16">
-          <div className="text-center">
-            <h1 className="font-heading text-3xl font-bold text-foreground">Seite nicht gefunden</h1>
-            <Link to="/" className="mt-4 inline-block text-primary hover:underline">Zurück zur Startseite</Link>
-          </div>
-        </main>
-        <Footer />
-      </div>
-    );
+    return <NotFound />;
   }
 
   const otherLocations = locations.filter((l) => l.slug !== slug).slice(0, 6);

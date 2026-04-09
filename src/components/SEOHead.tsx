@@ -38,6 +38,7 @@ const SEOHead = ({ title, description, canonical, keywords, ogImage, noindex }: 
     setMeta("og:description", description, true);
     setMeta("og:url", fullCanonical, true);
     setMeta("og:image", image, true);
+    setMeta("og:image:alt", "Marklewitz Solar - Photovoltaik aus der Region", true);
     setMeta("og:type", "website", true);
     setMeta("og:locale", "de_DE", true);
     setMeta("og:site_name", "Marklewitz Solar", true);
@@ -46,6 +47,7 @@ const SEOHead = ({ title, description, canonical, keywords, ogImage, noindex }: 
     setMeta("twitter:title", title);
     setMeta("twitter:description", description);
     setMeta("twitter:image", image);
+    setMeta("twitter:image:alt", "Marklewitz Solar - Photovoltaik aus der Region");
     setMeta("twitter:card", "summary_large_image");
 
     // Canonical
@@ -56,7 +58,7 @@ const SEOHead = ({ title, description, canonical, keywords, ogImage, noindex }: 
       document.head.appendChild(link);
     }
     link.href = fullCanonical;
-  }, [title, description, fullCanonical, keywords, image]);
+  }, [title, description, fullCanonical, keywords, image, noindex]);
 
   return null;
 };
