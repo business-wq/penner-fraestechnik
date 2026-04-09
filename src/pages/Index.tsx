@@ -19,8 +19,6 @@ const Index = () => {
         canonical="https://www.marklewitz-solar.de/"
         keywords="Photovoltaik Kirchheim unter Teck, Wärmepumpe Kirchheim, Solaranlage Owen, PV-Anlage Nürtingen, Marklewitz Solar"
       />
-        keywords="Photovoltaik Kirchheim unter Teck, Solaranlage Owen, PV-Anlage Nürtingen, Solartechnik Esslingen, Marklewitz Solar"
-      />
       <Navbar />
       <main id="main">
         <Hero />
