@@ -14,9 +14,11 @@ const Index = () => {
   return (
     <div className="min-h-screen overflow-x-hidden">
       <SEOHead
-        title="Photovoltaik Kirchheim unter Teck | Marklewitz Solar"
-        description="Solaranlagen & Photovoltaik in Kirchheim unter Teck, Owen, Nürtingen & Esslingen. ✓ Komplettservice ✓ Angebot in 24h ✓ Top-Preise. Jetzt kostenlos beraten lassen!"
+        title="Photovoltaik & Wärmepumpe Kirchheim | Marklewitz Solar"
+        description="Photovoltaik, Wärmepumpen & Stromspeicher in Kirchheim unter Teck, Owen, Nürtingen & Esslingen. ✓ Komplettservice ✓ Angebot in 24h. Jetzt kostenlos beraten lassen!"
         canonical="https://www.marklewitz-solar.de/"
+        keywords="Photovoltaik Kirchheim unter Teck, Wärmepumpe Kirchheim, Solaranlage Owen, PV-Anlage Nürtingen, Marklewitz Solar"
+      />
         keywords="Photovoltaik Kirchheim unter Teck, Solaranlage Owen, PV-Anlage Nürtingen, Solartechnik Esslingen, Marklewitz Solar"
       />
       <Navbar />
