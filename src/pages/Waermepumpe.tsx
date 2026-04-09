@@ -17,6 +17,10 @@ import { Navbar, Footer } from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-solar.jpg";
+import solarInstallation from "@/assets/solar-installation.jpg";
+import solarCompleted from "@/assets/solar-completed.jpg";
+import solarAerial from "@/assets/solar-aerial.jpg";
+import projektNeubau from "@/assets/gallery/projekt-5.jpg";
 
 const benefits = [
   {
@@ -66,6 +70,33 @@ const process = [
     icon: Flame,
     title: "Installation und Inbetriebnahme",
     text: "Von der Umsetzung bis zur Einweisung begleiten wir Ihr Projekt strukturiert und mit einem festen Ansprechpartner.",
+  },
+];
+
+const galleryImages = [
+  {
+    src: solarInstallation,
+    alt: "Energieprojekt am Einfamilienhaus in der Region Kirchheim",
+    title: "Gesamtsystem aus einer Hand",
+    text: "Wärmepumpe, Photovoltaik und Speicher sollten technisch sauber aufeinander abgestimmt werden.",
+  },
+  {
+    src: projektNeubau,
+    alt: "Modernes Wohnhaus als Beispiel für Wärmepumpe und Photovoltaik",
+    title: "Ideal für Neubau und Sanierung",
+    text: "Gerade bei modernisierten Gebäuden spielt die Wärmepumpe ihre Stärken besonders effizient aus.",
+  },
+  {
+    src: solarCompleted,
+    alt: "Abgeschlossenes Energieprojekt auf einem Wohnhaus",
+    title: "Regionale Projekte mit Substanz",
+    text: "Wir denken Hausenergie ganzheitlich und planen Lösungen, die langfristig wirtschaftlich bleiben.",
+  },
+  {
+    src: solarAerial,
+    alt: "Luftaufnahme eines Hauses mit moderner Energietechnik",
+    title: "PV und Wärmepumpe kombiniert",
+    text: "Wenn Dachfläche, Speicher und Heiztechnik zusammenpassen, steigt Ihr Eigenverbrauch deutlich.",
   },
 ];
 
@@ -288,6 +319,48 @@ const Waermepumpe = () => {
                   </Button>
                 </div>
               </motion.div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto max-w-6xl px-4">
+            <div className="text-center">
+              <span className="text-sm font-semibold uppercase tracking-wider text-primary">
+                Eindrücke
+              </span>
+              <h2 className="mt-3 font-heading text-3xl font-bold text-foreground md:text-4xl">
+                Galerie rund um moderne Haustechnik
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+                Beispiele aus unserem Projektumfeld zeigen, wie moderne Energielösungen im Wohnbereich heute aussehen.
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
+              {galleryImages.map((image, index) => (
+                <motion.div
+                  key={image.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  className="group overflow-hidden rounded-2xl border border-border bg-card shadow-card"
+                >
+                  <div className="overflow-hidden">
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-heading text-xl font-bold text-foreground">{image.title}</h3>
+                    <p className="mt-2 text-muted-foreground">{image.text}</p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
