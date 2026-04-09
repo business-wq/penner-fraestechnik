@@ -11,6 +11,8 @@ import Datenschutz from "./pages/Datenschutz";
 import LocationPage from "./pages/LocationPage";
 import Galerie from "./pages/Galerie";
 import NotFound from "./pages/NotFound";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import CookieBanner from "./components/CookieBanner";
 import SkipLink from "./components/SkipLink";
 import ErrorBoundary from "./components/ErrorBoundary";
