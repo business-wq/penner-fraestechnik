@@ -30,12 +30,12 @@ const ParallaxCTA = () => {
           viewport={{ once: true }}
         >
           <h2 className="font-heading text-3xl font-bold text-secondary-foreground md:text-4xl lg:text-5xl">
-            Bereit für Ihre eigene{" "}
-            <span className="text-gradient-gold">Solaranlage</span>?
+            Bereit für{" "}
+            <span className="text-gradient-gold">Solar & Wärmepumpe</span>?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-secondary-foreground/75">
-            Komplette Planung und Installation aus einer Hand. Starten Sie jetzt
-            und sparen Sie langfristig Stromkosten.
+            Photovoltaik und Wärmepumpe aus einer Hand. Starten Sie jetzt
+            und senken Sie Ihre Energie­kosten langfristig.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button variant="hero" size="lg" className="px-8 py-6 text-lg" asChild>

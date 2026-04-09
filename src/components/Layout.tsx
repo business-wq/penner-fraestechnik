@@ -46,6 +46,7 @@ const Navbar = () => {
             { href: "/galerie", label: "Galerie" },
             { href: "/#kundenstimmen", label: "Kundenstimmen" },
             { href: "/#standorte", label: "Standorte" },
+            { href: "/blog", label: "Blog" },
           ].map((link) => {
             const isInternal = link.href.startsWith("/") && !link.href.startsWith("/#");
             const Component = isInternal ? Link : "a";
@@ -99,7 +100,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="mt-3 text-sm text-muted-foreground">
-              Ihr Experte für Photovoltaik in Kirchheim unter Teck und Umgebung.
+              Ihr Experte für Photovoltaik & Wärmepumpen in Kirchheim unter Teck und Umgebung.
               Qualität, Service und faire Preise.
             </p>
           </div>

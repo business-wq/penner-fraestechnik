@@ -37,17 +37,17 @@ const Hero = () => {
           className="max-w-4xl"
         >
           <span className="mb-4 inline-block rounded-full border border-primary/30 bg-black/50 px-4 py-2 text-sm font-semibold text-primary backdrop-blur-md">
-            ☀️ Ihr Partner für Solarenergie in der Region
+            ☀️ Photovoltaik & Wärmepumpen aus der Region
           </span>
 
           <h1 className="mt-6 font-heading text-4xl font-bold leading-tight text-secondary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-            Solaranlagen aus{" "}
+            Solar & Wärmepumpe aus{" "}
             <span className="text-gradient-gold">Kirchheim unter Teck</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-secondary-foreground/75 sm:text-xl">
-            Qualitätsprodukte, Top-Service und unschlagbare Preise. Erleben Sie
-            die Freiheit, Ihren eigenen Strom zu erzeugen!
+            Photovoltaik, Stromspeicher und Wärmepumpen – alles aus einer Hand.
+            Erzeugen Sie Ihren eigenen Strom und heizen Sie damit!
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -63,7 +63,7 @@ const Hero = () => {
           </div>
 
           <p className="mt-6 text-sm text-secondary-foreground/60">
-            ✓ Angebot innerhalb 24 Std. · ✓ Montage in wenigen Wochen · ✓ Alles aus einer Hand
+            ✓ PV & Wärmepumpe · ✓ Angebot in 24 Std. · ✓ Montage in wenigen Wochen · ✓ Alles aus einer Hand
           </p>
         </motion.div>
 

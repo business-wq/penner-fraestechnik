@@ -41,6 +41,8 @@ const App = () => (
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/datenschutz" element={<Datenschutz />} />
             <Route path="/galerie" element={<Galerie />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             {locations.map((location) => (
               <Route
                 key={location.slug}
