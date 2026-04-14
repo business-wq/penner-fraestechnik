@@ -3,8 +3,15 @@ import { ArrowRight, Compass, MapPin, Route } from "lucide-react";
 import { Link } from "react-router-dom";
 import { locations } from "@/data/locations";
 
-const featuredLocations = locations.slice(0, 6);
-const secondaryLocations = locations.slice(6);
+const featuredSlugs = new Set([
+  "photovoltaik-kirchheim-unter-teck",
+  "photovoltaik-owen",
+  "photovoltaik-nuertingen",
+  "photovoltaik-esslingen",
+]);
+
+const featuredLocations = locations.filter((location) => featuredSlugs.has(location.slug));
+const secondaryLocations = locations.filter((location) => !featuredSlugs.has(location.slug));
 
 const LocationsGrid = () => {
   return (
@@ -56,8 +63,8 @@ const LocationsGrid = () => {
           </motion.div>
         </div>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-14 grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+          <div className="grid gap-5 sm:grid-cols-2">
             {featuredLocations.map((loc, index) => (
               <motion.div
                 key={loc.slug}
@@ -68,43 +75,37 @@ const LocationsGrid = () => {
               >
                 <Link
                   to={`/${loc.slug}`}
-                  className="group flex h-full flex-col justify-between overflow-hidden rounded-[1.75rem] border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-primary/30 hover:shadow-solar"
+                  className="group block overflow-hidden rounded-[1.75rem] border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:border-primary/30 hover:shadow-solar"
                 >
-                  <div>
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
-                        {loc.region}
-                      </div>
-                      <MapPin className="h-5 w-5 text-primary" />
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
+                      {loc.region}
                     </div>
-
-                    <h3 className="mt-5 font-heading text-2xl font-bold text-foreground">
-                      {loc.city}
-                    </h3>
-
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      <div className="rounded-full bg-muted/70 px-3 py-1.5 text-xs font-medium text-foreground">
-                        {loc.distanceFromOwen}
-                      </div>
-                      <div className="rounded-full bg-muted/70 px-3 py-1.5 text-xs font-medium text-foreground">
-                        {loc.population} Einwohner
-                      </div>
-                    </div>
-
-                    <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                      {loc.description}
-                    </p>
+                    <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" />
                   </div>
 
-                  <div className="mt-6 flex items-center justify-between border-t border-border/70 pt-4">
-                    <div>
-                      <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Region</div>
-                      <div className="mt-1 font-semibold text-foreground">{loc.region}</div>
+                  <h3 className="mt-5 font-heading text-[1.7rem] font-bold leading-tight text-foreground">
+                    {loc.city}
+                  </h3>
+
+                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                    <div className="rounded-2xl bg-muted/60 px-4 py-3">
+                      <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                        Distanz
+                      </div>
+                      <div className="mt-1 text-sm font-semibold text-foreground">{loc.distanceFromOwen}</div>
                     </div>
-                    <div className="inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                      Standortseite
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <div className="rounded-2xl bg-muted/60 px-4 py-3">
+                      <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                        Einwohner
+                      </div>
+                      <div className="mt-1 text-sm font-semibold text-foreground">{loc.population}</div>
                     </div>
+                  </div>
+
+                  <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                    Standortseite ansehen
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </div>
                 </Link>
               </motion.div>
@@ -123,28 +124,52 @@ const LocationsGrid = () => {
             <h3 className="mt-3 font-heading text-2xl font-bold text-secondary-foreground md:text-3xl">
               Auch in Ihrer Umgebung schnell vor Ort
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-secondary-foreground/75 md:text-base">
-              Neben den Hauptstandorten betreuen wir weitere Orte in der Region und bleiben durch die Nähe zu Owen flexibel in Beratung, Aufmaß und Umsetzung.
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-secondary-foreground/75 md:text-base">
+              Für Dettingen, Lenningen, Wendlingen, Notzingen, Weilheim und weitere Orte bleiben Beratung, Aufmaß und Umsetzung regional organisiert und ohne lange Wege.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
               {secondaryLocations.map((loc, index) => (
                 <motion.div
                   key={loc.slug}
                   initial={{ opacity: 0, scale: 0.92 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.1 + index * 0.06 }}
+                  transition={{ delay: 0.1 + index * 0.05 }}
                 >
                   <Link
                     to={`/${loc.slug}`}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-secondary-foreground transition-all hover:border-primary/30 hover:bg-white/10"
+                    className="flex items-center justify-between gap-3 rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-secondary-foreground transition-all hover:border-primary/30 hover:bg-white/10"
                   >
-                    <MapPin className="h-3.5 w-3.5 text-primary" />
-                    {loc.city}
+                    <span className="inline-flex items-center gap-2">
+                      <MapPin className="h-3.5 w-3.5 text-primary" />
+                      {loc.city}
+                    </span>
+                    <ArrowRight className="h-4 w-4 text-primary/90" />
                   </Link>
                 </motion.div>
               ))}
+            </div>
+
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-secondary-foreground/60">
+                  Firmensitz
+                </div>
+                <div className="mt-2 text-base font-semibold text-secondary-foreground">Owen an der Teck</div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-secondary-foreground/60">
+                  Einsatzgebiet
+                </div>
+                <div className="mt-2 text-base font-semibold text-secondary-foreground">Landkreis Esslingen</div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-secondary-foreground/60">
+                  Termine
+                </div>
+                <div className="mt-2 text-base font-semibold text-secondary-foreground">Kurzfristig vor Ort</div>
+              </div>
             </div>
           </motion.div>
         </div>
