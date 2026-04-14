@@ -1,17 +1,28 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import heroImage from "@/assets/hero-solar.jpg";
+
+const heroWords = ["Photovoltaik", "Wärmepumpe"];
 
 const Hero = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const [activeWordIndex, setActiveWordIndex] = useState(0);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveWordIndex((current) => (current + 1) % heroWords.length);
+    }, 2400);
+
+    return () => window.clearInterval(interval);
+  }, []);
 
   return (
     <section ref={ref} className="relative h-screen min-h-[700px] overflow-hidden">
@@ -36,14 +47,33 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-4xl"
         >
-          <span className="mb-4 inline-block rounded-full border border-primary/30 bg-black/50 px-4 py-2 text-sm font-semibold text-primary backdrop-blur-md">
-            ☀️ Photovoltaik & Wärmepumpen aus der Region
-          </span>
-
-          <h1 className="mt-6 font-heading text-4xl font-bold leading-tight text-secondary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-            Solar & Wärmepumpe aus{" "}
-            <span className="text-gradient-gold">Kirchheim unter Teck</span>
+          <h1 className="font-heading text-4xl font-bold leading-tight text-secondary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+            <span className="block text-secondary-foreground/90">Ihre</span>
+            <span className="relative mt-2 block h-[1.2em] overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={heroWords[activeWordIndex]}
+                  initial={{ opacity: 0, y: "110%", filter: "blur(8px)" }}
+                  animate={{ opacity: 1, y: "0%", filter: "blur(0px)" }}
+                  exit={{ opacity: 0, y: "-110%", filter: "blur(8px)" }}
+                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute inset-0 text-gradient-gold"
+                >
+                  {heroWords[activeWordIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
+            <span className="block text-secondary-foreground/90">für Ihr Zuhause</span>
           </h1>
+
+          <motion.div
+            animate={{ y: [0, -8, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="mx-auto mt-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-black/35 px-5 py-2.5 text-sm font-semibold text-secondary-foreground shadow-solar backdrop-blur-md"
+          >
+            <MapPin className="h-4 w-4 text-primary" />
+            aus <span className="text-primary">Kirchheim unter Teck</span>
+          </motion.div>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-secondary-foreground/75 sm:text-xl">
             Photovoltaik, Stromspeicher und Wärmepumpen – alles aus einer Hand.
