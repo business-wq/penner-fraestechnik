@@ -269,7 +269,7 @@ const ParallaxCTA = () => {
                     <h4 className="mt-4 text-2xl font-semibold text-secondary-foreground">
                       {recommendation.headline}
                     </h4>
-                    <p className="mt-3 max-w-2xl text-base leading-relaxed text-secondary-foreground/78">
+                    <p className="mt-3 max-w-2xl text-base leading-relaxed text-white/88">
                       {recommendation.text}
                     </p>
 
