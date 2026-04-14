@@ -21,7 +21,7 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
       className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-6 md:pt-5"
     >
       <div
