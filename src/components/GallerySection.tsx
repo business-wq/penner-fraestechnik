@@ -45,7 +45,7 @@ const GallerySection = () => {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.09),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.08),transparent_30%)]" />
 
       <div className="container mx-auto max-w-6xl px-4">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -104,14 +104,14 @@ const GallerySection = () => {
           </motion.div>
         </div>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
+        <div className="mt-14 grid gap-6 lg:grid-cols-[1.25fr_0.75fr] lg:items-stretch">
           <motion.article
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            className="group relative overflow-hidden rounded-[2rem] border border-border bg-card shadow-card"
+            className="group relative overflow-hidden rounded-[2rem] border border-border bg-card shadow-card lg:h-[36rem]"
           >
-            <div className="relative h-[28rem] overflow-hidden">
+            <div className="relative h-[28rem] overflow-hidden lg:h-full">
               <img
                 src={projects[0].src}
                 alt={projects[0].alt}
@@ -127,7 +127,7 @@ const GallerySection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="absolute bottom-5 left-5 right-5 rounded-[1.5rem] border border-white/10 bg-black/35 p-5 backdrop-blur-md"
+                className="absolute bottom-0 left-0 right-0 p-6 md:p-8"
               >
                 <div className="flex items-center gap-2 text-sm font-semibold text-primary">
                   <MapPin className="h-4 w-4" />
@@ -143,7 +143,7 @@ const GallerySection = () => {
             </div>
           </motion.article>
 
-          <div className="grid gap-6">
+          <div className="grid gap-6 lg:h-[36rem] lg:grid-rows-2">
             {projects.slice(1).map((project, index) => (
               <motion.article
                 key={project.title}
@@ -153,7 +153,7 @@ const GallerySection = () => {
                 transition={{ delay: index * 0.08 }}
                 className="group overflow-hidden rounded-[1.75rem] border border-border bg-card shadow-card"
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-64 overflow-hidden lg:h-full">
                   <img
                     src={project.src}
                     alt={project.alt}
@@ -169,46 +169,48 @@ const GallerySection = () => {
                       <MapPin className="h-3.5 w-3.5" />
                       {project.location}
                     </div>
-                    <h3 className="mt-2 font-heading text-xl font-bold text-secondary-foreground">
+                    <h3 className="mt-2 font-heading text-xl font-bold text-white">
                       {project.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-secondary-foreground/78">
+                    <p className="mt-2 text-sm leading-relaxed text-white/85">
                       {project.detail}
                     </p>
                   </div>
                 </div>
               </motion.article>
             ))}
-
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="relative overflow-hidden rounded-[1.75rem] border border-primary/20 bg-gradient-navy p-6 shadow-solar"
-            >
-              <div className="absolute right-0 top-0 h-28 w-28 rounded-full bg-primary/10 blur-2xl" />
-              <div className="relative">
-                <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary">
-                  <Zap className="h-4 w-4" />
-                  Mehr Einblicke
-                </div>
-                <h3 className="mt-3 font-heading text-2xl font-bold text-secondary-foreground">
-                  Weitere Projekte und Referenzen ansehen
-                </h3>
-                <p className="mt-3 max-w-sm text-sm leading-relaxed text-secondary-foreground/75">
-                  In der Galerie finden Sie weitere Anlagen, Dachtypen und Umsetzungen aus der Region.
-                </p>
-                <Button variant="hero" size="lg" className="mt-6" asChild>
-                  <Link to="/galerie">
-                    Alle Projekte ansehen
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-            </motion.div>
           </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="relative mt-6 overflow-hidden rounded-[1.75rem] border border-primary/20 bg-gradient-navy p-6 shadow-solar md:p-8"
+        >
+          <div className="absolute right-0 top-0 h-28 w-28 rounded-full bg-primary/10 blur-2xl" />
+          <div className="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary">
+                <Zap className="h-4 w-4" />
+                Mehr Einblicke
+              </div>
+              <h3 className="mt-3 font-heading text-2xl font-bold text-secondary-foreground md:text-3xl">
+                Weitere Projekte und Referenzen ansehen
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-secondary-foreground/75 md:text-base">
+                In der Galerie finden Sie weitere Anlagen, Dachtypen und Umsetzungen aus der Region.
+              </p>
+            </div>
+            <Button variant="hero" size="lg" className="shrink-0" asChild>
+              <Link to="/galerie">
+                Alle Projekte ansehen
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
