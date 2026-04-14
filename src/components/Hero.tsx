@@ -91,10 +91,6 @@ const Hero = () => {
               </a>
             </Button>
           </div>
-
-          <p className="mt-6 text-sm text-secondary-foreground/60">
-            ✓ PV & Wärmepumpe · ✓ Angebot in 24 Std. · ✓ Montage in wenigen Wochen · ✓ Alles aus einer Hand
-          </p>
         </motion.div>
 
         {/* Scroll indicator */}
