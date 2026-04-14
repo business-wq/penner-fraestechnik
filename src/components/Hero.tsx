@@ -19,7 +19,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = window.setInterval(() => {
       setActiveWordIndex((current) => (current + 1) % heroWords.length);
-    }, 2400);
+    }, 3800);
 
     return () => window.clearInterval(interval);
   }, []);
@@ -56,7 +56,7 @@ const Hero = () => {
                   initial={{ opacity: 0, y: "110%", filter: "blur(8px)" }}
                   animate={{ opacity: 1, y: "0%", filter: "blur(0px)" }}
                   exit={{ opacity: 0, y: "-110%", filter: "blur(8px)" }}
-                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                   className="absolute inset-0 text-gradient-gold"
                 >
                   {heroWords[activeWordIndex]}
