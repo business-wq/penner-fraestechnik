@@ -82,15 +82,24 @@ const LocationsGrid = () => {
                       {loc.city}
                     </h3>
 
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                      {loc.localInfo}
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      <div className="rounded-full bg-muted/70 px-3 py-1.5 text-xs font-medium text-foreground">
+                        {loc.distanceFromOwen}
+                      </div>
+                      <div className="rounded-full bg-muted/70 px-3 py-1.5 text-xs font-medium text-foreground">
+                        {loc.population} Einwohner
+                      </div>
+                    </div>
+
+                    <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                      {loc.description}
                     </p>
                   </div>
 
                   <div className="mt-6 flex items-center justify-between border-t border-border/70 pt-4">
                     <div>
-                      <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Distanz</div>
-                      <div className="mt-1 font-semibold text-foreground">{loc.distanceFromOwen}</div>
+                      <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Region</div>
+                      <div className="mt-1 font-semibold text-foreground">{loc.region}</div>
                     </div>
                     <div className="inline-flex items-center gap-2 text-sm font-semibold text-primary">
                       Standortseite
