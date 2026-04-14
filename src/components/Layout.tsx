@@ -22,25 +22,27 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        solid
-          ? "border-b border-border/20 bg-card/95 shadow-lg backdrop-blur-lg py-2"
-          : "bg-transparent py-4"
-      }`}
+      className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-6 md:pt-5"
     >
-      <div className="container mx-auto flex max-w-6xl items-center justify-between px-4">
-        <Link to="/" className="flex items-center gap-2">
+      <div
+        className={`mx-auto flex max-w-6xl items-center justify-between rounded-2xl border px-4 py-3 shadow-[0_18px_60px_-24px_rgba(15,23,42,0.45)] transition-all duration-300 md:px-6 ${
+          solid
+            ? "border-border/60 bg-card/88 backdrop-blur-xl"
+            : "border-white/15 bg-[hsl(220,30%,8%)]/38 backdrop-blur-2xl"
+        }`}
+      >
+        <Link to="/" className="flex items-center gap-2.5">
           <img
             src={logo}
             alt="Marklewitz Solar Logo"
-            className={`w-auto object-contain transition-all duration-300 ${solid ? "h-8" : "h-10"}`}
+            className={`w-auto object-contain transition-all duration-300 ${solid ? "h-8" : "h-9"}`}
           />
-          <span className={`font-heading text-xl font-bold transition-colors duration-300 ${solid ? "text-foreground" : "text-secondary-foreground"}`}>
+          <span className={`font-heading text-lg font-bold tracking-[0.08em] transition-colors duration-300 md:text-xl ${solid ? "text-foreground" : "text-secondary-foreground"}`}>
             MARKLEWITZ <span className="text-primary">SOLAR</span>
           </span>
         </Link>
 
-        <div className="hidden items-center gap-6 md:flex">
+        <div className="hidden items-center gap-2 md:flex">
           {[
             { href: "/#ablauf", label: "Ablauf" },
             { href: "/waermepumpe", label: "Wärmepumpe" },
@@ -56,10 +58,10 @@ const Navbar = () => {
               <Component
                 key={link.href}
                 {...(props as any)}
-                className={`text-sm font-medium transition-colors ${
+                className={`rounded-full px-3 py-2 text-sm font-medium transition-all ${
                   solid
-                    ? "text-muted-foreground hover:text-foreground"
-                    : "text-secondary-foreground/80 hover:text-secondary-foreground"
+                    ? "text-muted-foreground hover:bg-muted/80 hover:text-foreground"
+                    : "text-secondary-foreground/80 hover:bg-white/10 hover:text-secondary-foreground"
                 }`}
               >
                 {link.label}
@@ -68,7 +70,7 @@ const Navbar = () => {
           })}
           <a
             href="/#kontakt"
-            className="inline-flex items-center gap-2 rounded-lg bg-gradient-solar px-4 py-2 text-sm font-semibold text-primary-foreground shadow-solar transition-all hover:scale-105"
+            className="ml-2 inline-flex items-center gap-2 rounded-full bg-gradient-solar px-4 py-2 text-sm font-semibold text-primary-foreground shadow-solar transition-all hover:scale-105"
           >
             <Phone className="h-4 w-4" />
             Kontakt
@@ -78,7 +80,7 @@ const Navbar = () => {
         {/* Mobile CTA */}
         <a
           href="tel:+491627382351"
-          className="flex items-center gap-2 rounded-lg bg-gradient-solar px-3 py-2 text-sm font-semibold text-primary-foreground shadow-solar md:hidden"
+          className="flex items-center gap-2 rounded-full bg-gradient-solar px-3 py-2 text-sm font-semibold text-primary-foreground shadow-solar md:hidden"
         >
           <Phone className="h-4 w-4" />
           Anrufen
