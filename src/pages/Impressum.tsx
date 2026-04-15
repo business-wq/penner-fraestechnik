@@ -7,7 +7,7 @@ const Impressum = () => {
     <div className="min-h-screen">
       <SEOHead
         title="Impressum | Marklewitz Solar"
-        description="Impressum von Marklewitz Solar – Sven Marklewitz, Gartenstraße 43/1, 73277 Owen an der Teck."
+        description="Impressum von Marklewitz Solar – Sven Marklewitz, Owen an der Teck."
       />
       <Navbar />
       <main className="pt-24 pb-20" id="main">

@@ -118,7 +118,7 @@ const Footer = () => {
                 <Mail className="h-4 w-4" /> sven.marklewitz@marklewitz-solar.de
               </a>
               <p className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" /> Gartenstraße 43/1, 73277 Owen
+                <MapPin className="h-4 w-4" /> Owen an der Teck, Baden-Wuerttemberg
               </p>
             </div>
           </div>
