@@ -123,7 +123,7 @@ const ContactSection = () => {
               Der letzte Schritt ist nur noch die{" "}
               <span className="text-gradient-gold">erste Anfrage</span>
             </h2>
-            <p className="mt-4 max-w-xl text-lg text-secondary-foreground/74">
+            <p className="mt-4 max-w-xl text-lg text-secondary-foreground/88">
               Wenn Dach, Verbrauch oder Heizung schon grob feststehen, reicht eine
               kurze Nachricht. Wir sortieren das Thema fuer Sie ein und sagen direkt,
               ob eher PV, Waermepumpe oder die Kombination Sinn ergibt.
@@ -142,7 +142,7 @@ const ContactSection = () => {
                           <Icon className="h-5 w-5" />
                         </div>
                         <div>
-                          <p className="text-sm text-secondary-foreground/58">{option.subtitle}</p>
+                          <p className="text-sm text-secondary-foreground/72">{option.subtitle}</p>
                           <p className="mt-1 font-heading text-lg font-bold text-secondary-foreground">
                             {option.title}
                           </p>
@@ -186,7 +186,7 @@ const ContactSection = () => {
                       className="rounded-[1.35rem] border border-white/10 bg-[rgba(255,255,255,0.04)] p-4"
                     >
                       <Icon className="h-4 w-4 text-primary" />
-                      <div className="mt-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-secondary-foreground/55">
+                      <div className="mt-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-secondary-foreground/70">
                         {note.label}
                       </div>
                       <div className="mt-2 text-sm font-semibold leading-relaxed text-secondary-foreground">
@@ -212,10 +212,10 @@ const ContactSection = () => {
                     <MessageCircle className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-heading text-2xl font-bold text-foreground">
+                    <h3 className="font-heading text-2xl font-bold text-slate-900">
                       Anfrage direkt an Sven
                     </h3>
-                    <p className="mt-1 text-sm text-muted-foreground">
+                    <p className="mt-1 text-sm text-slate-600">
                       Kurz ausfuellen, WhatsApp oeffnet sich mit Ihrer vorausgefuellten Nachricht.
                     </p>
                   </div>
