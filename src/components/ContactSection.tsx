@@ -6,11 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import {
   ArrowRight,
   Calendar,
-  Clock3,
-  MapPin,
   MessageCircle,
   Phone,
-  ShieldCheck,
 } from "lucide-react";
 
 const WHATSAPP_NUMBER = "491627382351";
@@ -43,24 +40,6 @@ const contactOptions = [
     icon: MessageCircle,
     iconClassName: "bg-emerald-400/14 text-emerald-300",
     external: true,
-  },
-];
-
-const trustNotes = [
-  {
-    label: "Rueckmeldung",
-    value: "Persoenlich waehrend der Oeffnungszeiten",
-    icon: Clock3,
-  },
-  {
-    label: "Standort",
-    value: "Owen an der Teck, Baden-Wuerttemberg",
-    icon: MapPin,
-  },
-  {
-    label: "Abwicklung",
-    value: "Beratung, Planung und Umsetzung aus einer Hand",
-    icon: ShieldCheck,
   },
 ];
 
@@ -173,29 +152,6 @@ const ContactSection = () => {
                 })}
               </div>
 
-              <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                {trustNotes.map((note, index) => {
-                  const Icon = note.icon;
-                  return (
-                    <motion.div
-                      key={note.label}
-                      initial={{ opacity: 0, y: 18 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.12 + index * 0.05 }}
-                      className="rounded-[1.35rem] border border-white/10 bg-[rgba(255,255,255,0.04)] p-4"
-                    >
-                      <Icon className="h-4 w-4 text-primary" />
-                      <div className="mt-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-secondary-foreground/70">
-                        {note.label}
-                      </div>
-                      <div className="mt-2 text-sm font-semibold leading-relaxed text-secondary-foreground">
-                        {note.value}
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
             </div>
           </motion.div>
 
