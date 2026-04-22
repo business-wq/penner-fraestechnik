@@ -102,7 +102,7 @@ const ContactSection = () => {
               Der letzte Schritt ist nur noch die{" "}
               <span className="text-gradient-gold">erste Anfrage</span>
             </h2>
-            <p className="mt-4 max-w-xl text-lg text-secondary-foreground/88">
+            <p className="mt-4 max-w-xl text-lg text-white/95">
               Wenn Dach, Verbrauch oder Heizung schon grob feststehen, reicht eine
               kurze Nachricht. Wir sortieren das Thema fuer Sie ein und sagen direkt,
               ob eher PV, Waermepumpe oder die Kombination Sinn ergibt.

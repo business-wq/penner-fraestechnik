@@ -5,10 +5,24 @@ import { MapPin, Phone } from "lucide-react";
 import heroImage from "@/assets/hero-solar.jpg";
 
 const heroWords = ["Photovoltaik", "Wärmepumpe"];
+const heroLocations = [
+  "Kirchheim unter Teck",
+  "Owen an der Teck",
+  "Nürtingen",
+  "Esslingen am Neckar",
+  "Weilheim an der Teck",
+  "Dettingen unter Teck",
+];
+const longestHeroLocation = heroLocations.reduce((longest, location) =>
+  location.length > longest.length ? location : longest,
+);
 
 const Hero = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [activeWordIndex, setActiveWordIndex] = useState(0);
+  const [activeLocationIndex, setActiveLocationIndex] = useState(0);
+  const [typedLocation, setTypedLocation] = useState(heroLocations[0]);
+  const [isDeletingLocation, setIsDeletingLocation] = useState(false);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -23,6 +37,42 @@ const Hero = () => {
 
     return () => window.clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    const currentLocation = heroLocations[activeLocationIndex];
+
+    let timeout = 95;
+
+    if (!isDeletingLocation && typedLocation === currentLocation) {
+      timeout = 1600;
+    } else if (isDeletingLocation && typedLocation.length === 0) {
+      timeout = 350;
+    } else if (isDeletingLocation) {
+      timeout = 55;
+    }
+
+    const timer = window.setTimeout(() => {
+      if (!isDeletingLocation && typedLocation === currentLocation) {
+        setIsDeletingLocation(true);
+        return;
+      }
+
+      if (isDeletingLocation && typedLocation.length === 0) {
+        setIsDeletingLocation(false);
+        setActiveLocationIndex((current) => (current + 1) % heroLocations.length);
+        return;
+      }
+
+      if (isDeletingLocation) {
+        setTypedLocation(currentLocation.slice(0, typedLocation.length - 1));
+        return;
+      }
+
+      setTypedLocation(currentLocation.slice(0, typedLocation.length + 1));
+    }, timeout);
+
+    return () => window.clearTimeout(timer);
+  }, [activeLocationIndex, isDeletingLocation, typedLocation]);
 
   return (
     <section ref={ref} className="relative h-screen min-h-[700px] overflow-hidden">
@@ -72,7 +122,20 @@ const Hero = () => {
             className="mx-auto mt-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-black/35 px-5 py-2.5 text-sm font-semibold text-secondary-foreground shadow-solar backdrop-blur-md"
           >
             <MapPin className="h-4 w-4 text-primary" />
-            aus <span className="text-primary">Kirchheim unter Teck</span>
+            aus{" "}
+            <span className="relative inline-block text-left text-primary">
+              <span className="invisible">{longestHeroLocation}</span>
+              <span className="absolute inset-0 whitespace-nowrap">
+                {typedLocation}
+                <motion.span
+                  animate={{ opacity: [1, 0, 1] }}
+                  transition={{ duration: 0.9, repeat: Infinity, ease: "easeInOut" }}
+                  className="ml-0.5 inline-block"
+                >
+                  |
+                </motion.span>
+              </span>
+            </span>
           </motion.div>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-secondary-foreground/75 sm:text-xl">
