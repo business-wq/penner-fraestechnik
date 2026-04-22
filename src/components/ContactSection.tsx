@@ -121,7 +121,7 @@ const ContactSection = () => {
                           <Icon className="h-5 w-5" />
                         </div>
                         <div>
-                          <p className="text-sm text-secondary-foreground/82">{option.subtitle}</p>
+                          <p className="text-sm text-white/88">{option.subtitle}</p>
                           <p className="mt-1 font-heading text-lg font-bold text-secondary-foreground">
                             {option.title}
                           </p>
