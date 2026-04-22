@@ -139,7 +139,16 @@ const Footer = () => {
         </div>
 
         <div className="mt-10 border-t border-border pt-6 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Marklewitz Solar – Sven Marklewitz. Alle Rechte vorbehalten.
+          © {new Date().getFullYear()} Marklewitz Solar – Sven Marklewitz. Alle Rechte vorbehalten. Website by{" "}
+          <a
+            href="https://agency.simonnikel.de"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-foreground"
+          >
+            Simon Nikel
+          </a>
+          .
         </div>
       </div>
     </footer>
