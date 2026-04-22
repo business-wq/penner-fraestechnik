@@ -108,12 +108,12 @@ const ContactSection = () => {
               ob eher PV, Waermepumpe oder die Kombination Sinn ergibt.
             </p>
 
-            <div className="mt-8 rounded-[2rem] border border-white/10 bg-white/6 p-6 shadow-solar backdrop-blur-md">
+            <div className="mt-8 rounded-[2rem] border border-white/14 bg-white/8 p-6 shadow-solar backdrop-blur-md">
               <div className="grid gap-3">
                 {contactOptions.map((option, index) => {
                   const Icon = option.icon;
                   const content = (
-                    <div className="group flex items-center justify-between gap-4 rounded-[1.4rem] border border-white/10 bg-white/5 p-4 transition-all hover:-translate-y-1 hover:border-primary/25 hover:bg-white/10">
+                    <div className="group flex items-center justify-between gap-4 rounded-[1.4rem] border border-white/14 bg-white/8 p-4 transition-all hover:-translate-y-1 hover:border-primary/25 hover:bg-white/12">
                       <div className="flex items-center gap-4">
                         <div
                           className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${option.iconClassName}`}
@@ -121,14 +121,14 @@ const ContactSection = () => {
                           <Icon className="h-5 w-5" />
                         </div>
                         <div>
-                          <p className="text-sm text-secondary-foreground/72">{option.subtitle}</p>
+                          <p className="text-sm text-secondary-foreground/82">{option.subtitle}</p>
                           <p className="mt-1 font-heading text-lg font-bold text-secondary-foreground">
                             {option.title}
                           </p>
                           <p className="mt-1 text-sm font-medium text-primary">{option.value}</p>
                         </div>
                       </div>
-                      <ArrowRight className="h-4 w-4 shrink-0 text-secondary-foreground/60 transition-transform group-hover:translate-x-1" />
+                      <ArrowRight className="h-4 w-4 shrink-0 text-secondary-foreground/78 transition-transform group-hover:translate-x-1" />
                     </div>
                   );
 
@@ -161,8 +161,8 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.12 }}
           >
-            <div className="rounded-[2rem] border border-white/10 bg-card/96 p-5 shadow-[0_30px_90px_-35px_rgba(15,23,42,0.65)] backdrop-blur-sm sm:p-8">
-              <div className="flex flex-col gap-4 border-b border-border/70 pb-6 sm:flex-row sm:items-start sm:justify-between">
+            <div className="rounded-[2rem] border border-white/20 bg-white p-5 shadow-[0_30px_90px_-35px_rgba(15,23,42,0.65)] backdrop-blur-sm sm:p-8">
+              <div className="flex flex-col gap-4 border-b border-slate-200 pb-6 sm:flex-row sm:items-start sm:justify-between">
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/12 text-emerald-500">
                     <MessageCircle className="h-5 w-5" />
@@ -194,6 +194,7 @@ const ContactSection = () => {
                       id="name"
                       required
                       placeholder="Max Mustermann"
+                      className="border-slate-200 bg-white text-slate-900 placeholder:text-slate-400"
                       value={formData.name}
                       onChange={(e) =>
                         setFormData({ ...formData, name: e.target.value })
@@ -213,6 +214,7 @@ const ContactSection = () => {
                       type="tel"
                       required
                       placeholder="0162 1234567"
+                      className="border-slate-200 bg-white text-slate-900 placeholder:text-slate-400"
                       value={formData.phone}
                       onChange={(e) =>
                         setFormData({ ...formData, phone: e.target.value })
@@ -232,6 +234,7 @@ const ContactSection = () => {
                     id="email"
                     type="email"
                     placeholder="max@beispiel.de"
+                    className="border-slate-200 bg-white text-slate-900 placeholder:text-slate-400"
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
@@ -250,6 +253,7 @@ const ContactSection = () => {
                     id="message"
                     rows={4}
                     placeholder="z. B. Dachgroesse, aktuelle Heizung, Stromverbrauch oder Fragen zur Foerderung..."
+                    className="border-slate-200 bg-white text-slate-900 placeholder:text-slate-400"
                     value={formData.message}
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
@@ -257,28 +261,28 @@ const ContactSection = () => {
                   />
                 </div>
 
-                <div className="grid gap-3 rounded-[1.5rem] border border-border/70 bg-muted/35 p-4 sm:grid-cols-3">
+                <div className="grid gap-3 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-4 sm:grid-cols-3">
                   <div>
-                    <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                       Ideal fuer
                     </div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">
+                    <div className="mt-2 text-sm font-semibold text-slate-900">
                       Erste Einordnung
                     </div>
                   </div>
                   <div>
-                    <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                       Themen
                     </div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">
+                    <div className="mt-2 text-sm font-semibold text-slate-900">
                       PV, Speicher, Waermepumpe
                     </div>
                   </div>
                   <div>
-                    <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                       Antwortweg
                     </div>
-                    <div className="mt-2 text-sm font-semibold text-foreground">
+                    <div className="mt-2 text-sm font-semibold text-slate-900">
                       Direkt per WhatsApp
                     </div>
                   </div>
@@ -294,7 +298,7 @@ const ContactSection = () => {
                   Jetzt ueber WhatsApp senden
                 </Button>
 
-                <p className="text-center text-xs leading-relaxed text-muted-foreground">
+                <p className="text-center text-xs leading-relaxed text-slate-600">
                   WhatsApp oeffnet sich mit Ihrer Anfrage vorausgefuellt. Ihre
                   Daten werden nur fuer die Kontaktaufnahme genutzt.
                 </p>
