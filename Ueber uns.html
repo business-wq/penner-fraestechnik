@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<title>Über uns · Penner Frästechnik</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --ink:#141210; --ink-2:#2a2824; --ink-3:#6b655e; --line:#e6e1d9;
+    --bg:#f6f2ea; --bg-2:#ece6dc;
+    --accent:oklch(0.68 0.17 50); --accent-ink:#fff;
+    --dark:#1a1815; --dark-2:#242019; --on-dark:#f6f2ea; --on-dark-2:#9a9287;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif; color:var(--ink); background:var(--bg); line-height:1.55; font-size:16px; -webkit-font-smoothing:antialiased;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1280px; margin:0 auto; padding:0 48px;}
+  .mono{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase;}
+  .serif{font-family:'Fraunces',serif; font-style:italic; font-weight:400;}
+
+  /* NAV */
+  nav.top{position:sticky; top:0; z-index:50; background:rgba(246,242,234,0.85); backdrop-filter:blur(12px); border-bottom:1px solid var(--line);}
+  nav.top .inner{display:flex; align-items:center; justify-content:space-between; height:68px;}
+  nav.top .logo img{height:36px; width:auto; display:block;}
+  nav.top .links{display:flex; gap:28px; font-size:14px;}
+  nav.top .links a{color:var(--ink-2);}
+  nav.top .links a:hover{color:var(--accent);}
+  nav.top .cta{padding:10px 16px; border:1px solid var(--ink); font-size:13px; font-weight:500; transition:all .2s;}
+  nav.top .cta:hover{background:var(--ink); color:var(--bg);}
+
+  /* HERO */
+  .hero{padding:120px 0 80px; position:relative; overflow:hidden;}
+  .kicker{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-3); margin-bottom:28px; display:flex; align-items:center; gap:12px;}
+  .kicker::before{content:""; width:24px; height:1px; background:var(--ink-3);}
+  h1{font-family:'Fraunces',serif; font-weight:300; font-size:clamp(56px,8vw,120px); line-height:0.92; letter-spacing:-0.03em; margin:0 0 32px; max-width:16ch;}
+  h1 em{font-style:italic; color:var(--accent);}
+  .lede{font-size:22px; color:var(--ink-2); max-width:56ch; line-height:1.45; font-weight:300;}
+
+  /* Big portrait + text grid */
+  .portrait-grid{display:grid; grid-template-columns:1fr 1fr; gap:80px; padding:60px 0 120px; align-items:center;}
+  .portrait{aspect-ratio:4/5; position:relative; overflow:hidden; background:var(--bg-2);}
+  .portrait svg{width:100%; height:100%; display:block;}
+  .portrait .tag{position:absolute; bottom:20px; left:20px; background:var(--ink); color:var(--bg); padding:10px 16px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase;}
+  .portrait-text h2{font-family:'Fraunces',serif; font-weight:300; font-size:52px; line-height:1.05; letter-spacing:-0.02em; margin-bottom:24px;}
+  .portrait-text h2 em{font-style:italic; color:var(--accent);}
+  .portrait-text p{font-size:17px; color:var(--ink-2); margin-bottom:16px; line-height:1.6; max-width:48ch;}
+  .portrait-text .sign{margin-top:36px; padding-top:24px; border-top:1px solid var(--line);}
+  .portrait-text .sign .name{font-family:'Fraunces',serif; font-size:28px; font-weight:400;}
+  .portrait-text .sign .role{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-3); margin-top:4px; text-transform:uppercase; letter-spacing:0.08em;}
+
+  /* Werte (values) */
+  .werte{background:var(--dark); color:var(--on-dark); padding:120px 0;}
+  .werte .wrap > .eyebrow{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--on-dark-2); margin-bottom:24px;}
+  .werte h2{font-family:'Fraunces',serif; font-weight:300; font-size:clamp(40px,5vw,72px); line-height:1.02; letter-spacing:-0.02em; margin-bottom:64px; max-width:18ch;}
+  .werte h2 em{font-style:italic; color:var(--accent);}
+  .werte-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.08);}
+  .wert{background:var(--dark); padding:48px 36px; min-height:300px; display:flex; flex-direction:column; justify-content:space-between;}
+  .wert .num{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--accent); letter-spacing:0.1em;}
+  .wert h3{font-family:'Fraunces',serif; font-weight:400; font-size:28px; line-height:1.1; margin:48px 0 12px;}
+  .wert p{font-size:15px; color:var(--on-dark-2); line-height:1.55;}
+
+  /* Zahlen */
+  .zahlen{padding:120px 0;}
+  .zahlen-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .zahl{background:var(--bg); padding:40px 32px;}
+  .zahl .big{font-family:'Fraunces',serif; font-weight:300; font-size:72px; line-height:1; letter-spacing:-0.03em; color:var(--ink);}
+  .zahl .big em{font-style:italic; color:var(--accent); font-size:36px; vertical-align:top;}
+  .zahl .label{font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; color:var(--ink-3); margin-top:16px; letter-spacing:0.06em;}
+
+  /* Timeline */
+  .timeline-section{padding:60px 0 120px;}
+  .timeline-section .eyebrow{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:24px;}
+  .timeline-section h2{font-family:'Fraunces',serif; font-weight:300; font-size:clamp(40px,5vw,72px); line-height:1.02; letter-spacing:-0.02em; margin-bottom:80px; max-width:18ch;}
+  .timeline-section h2 em{font-style:italic; color:var(--accent);}
+  .timeline{position:relative; padding-left:48px; border-left:1px solid var(--line);}
+  .event{padding:0 0 64px; position:relative;}
+  .event::before{content:""; position:absolute; left:-54px; top:8px; width:12px; height:12px; border-radius:50%; background:var(--bg); border:2px solid var(--accent);}
+  .event .year{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--accent); letter-spacing:0.08em; margin-bottom:8px;}
+  .event h3{font-family:'Fraunces',serif; font-weight:400; font-size:32px; line-height:1.1; margin-bottom:12px; letter-spacing:-0.01em;}
+  .event p{font-size:16px; color:var(--ink-2); max-width:56ch; line-height:1.6;}
+
+  /* CTA */
+  .cta-section{background:var(--accent); color:#fff; padding:120px 0; position:relative; overflow:hidden;}
+  .cta-section h2{font-family:'Fraunces',serif; font-weight:300; font-size:clamp(48px,6vw,84px); line-height:1.02; letter-spacing:-0.02em; margin-bottom:32px; max-width:18ch;}
+  .cta-section h2 em{font-style:italic;}
+  .cta-section p{font-size:19px; max-width:48ch; line-height:1.5; margin-bottom:48px; opacity:0.92;}
+  .cta-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{display:inline-flex; align-items:center; gap:12px; padding:18px 28px; font-size:15px; font-weight:500; transition:all .2s; border:1px solid transparent;}
+  .btn-dark{background:var(--ink); color:var(--bg);}
+  .btn-dark:hover{background:#000;}
+  .btn-outline{border-color:#fff; color:#fff;}
+  .btn-outline:hover{background:#fff; color:var(--accent);}
+
+  /* FOOTER */
+  footer{background:var(--ink); color:var(--on-dark); padding:60px 0 28px;}
+  footer .foot-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px;}
+  footer .brand img{height:40px; width:auto; display:block; filter:brightness(0) invert(1);}
+  footer .meta{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--on-dark-2); text-transform:uppercase; letter-spacing:0.06em;}
+  footer .legal-links{display:flex; gap:24px; font-size:13px;}
+  footer .legal-links a{color:var(--on-dark-2);}
+  footer .legal-links a:hover{color:var(--accent);}
+  footer .foot-bot{margin-top:40px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.08); font-size:12px; color:var(--on-dark-2); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;}
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  .reveal.d1{transition-delay:.08s;} .reveal.d2{transition-delay:.16s;} .reveal.d3{transition-delay:.24s;}
+
+  @media (max-width:900px){
+    .wrap{padding:0 24px;}
+    .portrait-grid{grid-template-columns:1fr; gap:48px;}
+    .werte-grid{grid-template-columns:1fr;}
+    .zahlen-grid{grid-template-columns:1fr 1fr;}
+    nav.top .links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top">
+  <div class="wrap inner">
+    <a href="Penner Fraestechnik.html" class="logo">
+      <img src="assets/logo.png" alt="Penner Frästechnik"/>
+    </a>
+    <div class="links">
+      <a href="Penner Fraestechnik.html#leistungen">Leistungen</a>
+      <a href="Penner Fraestechnik.html#ablauf">Ablauf</a>
+      <a href="Ueber uns.html" style="color:var(--ink);">Über uns</a>
+      <a href="Penner Fraestechnik.html#anfrage">Kontakt</a>
+    </div>
+    <a href="tel:+4915733927868" class="cta">0 1573 / 39 27 868</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker reveal">Über uns · Andre Penner</div>
+    <h1 class="reveal d1">Einer, der <em>anpackt</em>. Keine Ketten­agentur.</h1>
+    <p class="lede reveal d2">
+      Penner Frästechnik ist ein Ein-Mann-Betrieb aus Neuwied. Andre Penner fräst, verlegt und übergibt jeden Auftrag persönlich — mit eigener Maschine, eigenen Händen, eigener Verantwortung.
+    </p>
+  </div>
+</header>
+
+<!-- PORTRAIT + STORY -->
+<section>
+  <div class="wrap portrait-grid">
+    <div class="portrait reveal">
+      <!-- Abstract tonal portrait placeholder -->
+      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#3a322a"/>
+            <stop offset="1" stop-color="#1a1612"/>
+          </linearGradient>
+          <radialGradient id="light" cx="0.3" cy="0.25" r="0.7">
+            <stop offset="0" stop-color="#d97737" stop-opacity="0.35"/>
+            <stop offset="1" stop-color="#d97737" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="400" height="500" fill="url(#pg)"/>
+        <rect width="400" height="500" fill="url(#light)"/>
+        <!-- Silhouette -->
+        <g fill="#0f0d0b" opacity="0.85">
+          <!-- shoulders -->
+          <path d="M60 500 L60 440 C 60 380, 120 350, 200 345 C 280 350, 340 380, 340 440 L 340 500 Z"/>
+          <!-- neck -->
+          <rect x="180" y="310" width="40" height="50"/>
+          <!-- head -->
+          <ellipse cx="200" cy="270" rx="70" ry="80"/>
+        </g>
+        <!-- rim light -->
+        <path d="M60 500 L60 440 C 60 380, 120 350, 200 345" stroke="#d97737" stroke-width="2" fill="none" opacity="0.55"/>
+        <ellipse cx="200" cy="270" rx="70" ry="80" stroke="#d97737" stroke-width="1.2" fill="none" opacity="0.5"/>
+        <!-- grain -->
+        <g opacity="0.08" fill="#f6f2ea">
+          <circle cx="60" cy="40" r="1"/><circle cx="120" cy="90" r="1"/><circle cx="200" cy="50" r="1"/>
+          <circle cx="300" cy="120" r="1"/><circle cx="340" cy="220" r="1"/><circle cx="80" cy="240" r="1"/>
+          <circle cx="160" cy="400" r="1"/><circle cx="320" cy="360" r="1"/>
+        </g>
+        <!-- caption marks -->
+        <text x="24" y="40" font-family="JetBrains Mono" font-size="10" fill="#f6f2ea" opacity="0.5" letter-spacing="1">FIG. 02 / INHABER</text>
+        <text x="24" y="480" font-family="JetBrains Mono" font-size="10" fill="#f6f2ea" opacity="0.5" letter-spacing="1">NEUWIED · WESTERWALD</text>
+      </svg>
+      <div class="tag">Andre Penner · 2026</div>
+    </div>
+
+    <div class="portrait-text reveal d1">
+      <h2>Handwerk ist für mich <em>keine Branche</em>. Es ist die Art, wie ich arbeite.</h2>
+      <p>Ich habe Penner Frästechnik gegründet, weil ich gesehen habe, wie viele Häuser im Westerwald sich nicht sanieren lassen, solange der Eingriff am Boden so brutal ist. Estrich raus, Türen kürzen, Wochen Baustelle — das schreckt jeden ab.</p>
+      <p>Das Verfahren, das ich heute einsetze, dreht das um: Der Boden bleibt, wo er ist. In den meisten Räumen ist die Heizung innerhalb eines Arbeitstags drin. Ich mache das alleine, sauber, und ich bin derjenige, der morgens bei Ihnen steht.</p>
+      <div class="sign">
+        <div class="name">Andre Penner</div>
+        <div class="role">Inhaber · Gründer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WERTE -->
+<section class="werte">
+  <div class="wrap">
+    <div class="eyebrow">Werte · Was uns leitet</div>
+    <h2 class="reveal">Drei Prinzipien, nach denen <em>jede Baustelle</em> läuft.</h2>
+    <div class="werte-grid">
+      <div class="wert reveal">
+        <div class="num">/01</div>
+        <div>
+          <h3>Persönlich, nicht per Callcenter.</h3>
+          <p>Wer anruft, spricht mit mir. Wer einen Termin hat, bekommt mich. Wer Fragen hat, bekommt Antworten — keine Ticketnummern.</p>
+        </div>
+      </div>
+      <div class="wert reveal d1">
+        <div class="num">/02</div>
+        <div>
+          <h3>Sauber ist Pflicht.</h3>
+          <p>Industrie-Absaugung direkt am Fräskopf. Flächen werden abgedeckt. Am Abend ist der Raum gefegt — auch wenn niemand hinschaut.</p>
+        </div>
+      </div>
+      <div class="wert reveal d2">
+        <div class="num">/03</div>
+        <div>
+          <h3>Festpreis bleibt Festpreis.</h3>
+          <p>Was im Angebot steht, wird abgerechnet. Keine Nachschläge, wenn die Baustelle überrascht. Das Risiko trage ich.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZAHLEN -->
+<section class="zahlen">
+  <div class="wrap">
+    <div class="mono" style="color:var(--ink-3); margin-bottom:24px;">In Zahlen</div>
+    <div class="zahlen-grid">
+      <div class="zahl"><div class="big">30<em>m²</em></div><div class="label">pro Arbeitstag gefräst</div></div>
+      <div class="zahl"><div class="big">24<em>/7</em></div><div class="label">Erreichbarkeit</div></div>
+      <div class="zahl"><div class="big">~<em>30°</em></div><div class="label">Vorlauftemperatur</div></div>
+      <div class="zahl"><div class="big">-50<em>%</em></div><div class="label">Kosten vs. neuer Estrich</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section">
+  <div class="wrap">
+    <div class="eyebrow">Der Weg hierher</div>
+    <h2 class="reveal">Vom ersten Werkzeug­koffer zur <em>eigenen Fräse.</em></h2>
+    <div class="timeline">
+      <div class="event reveal">
+        <div class="year">Handwerks-Start</div>
+        <h3>Ausbildung &amp; erste Jahre auf dem Bau.</h3>
+        <p>Geprägt von klassischer Handwerkskultur im Westerwald. Genauigkeit, Pünktlichkeit, und die Regel: Du übergibst das, was du selbst akzeptieren würdest.</p>
+      </div>
+      <div class="event reveal d1">
+        <div class="year">Erste Einsätze</div>
+        <h3>Heizungs­modernisierung mit den üblichen Nachteilen.</h3>
+        <p>Immer wieder dasselbe Bild: Kunden wollen Fußbodenheizung — aber niemand will Wochen ohne Boden leben. Das muss anders gehen.</p>
+      </div>
+      <div class="event reveal d2">
+        <div class="year">Heute</div>
+        <h3>Penner Frästechnik — Fräsen, Verlegen, Übergeben.</h3>
+        <p>Eigene Maschine, eigene Route durch Neuwied und den Westerwald, eigene Handschrift. Rund um die Uhr erreichbar, wenn die Planung drückt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="wrap">
+    <h2>Lernen wir uns <em>kennen.</em></h2>
+    <p>Rufen Sie an, schreiben Sie, oder schicken Sie eine Anfrage. Ich melde mich persönlich zurück — oft noch am selben Tag.</p>
+    <div class="cta-row">
+      <a href="tel:+4915733927868" class="btn btn-dark">Jetzt anrufen · 24/7</a>
+      <a href="Penner Fraestechnik.html#anfrage" class="btn btn-outline">Anfrage stellen →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <a href="Penner Fraestechnik.html" class="brand">
+        <img src="assets/logo.png" alt="Penner Frästechnik"/>
+      </a>
+      <div class="meta">Andre Penner · Neuwied · 24/7</div>
+      <div class="legal-links">
+        <a href="Penner Fraestechnik.html">Startseite</a>
+        <a href="Impressum.html">Impressum</a>
+        <a href="Impressum.html#datenschutz">Datenschutz</a>
+        <a href="tel:+4915733927868">Anrufen</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div>© 2026 Andre Penner Frästechnik · Neuwied · Alle Rechte vorbehalten</div>
+      <div>USt-ID: DE456617793</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

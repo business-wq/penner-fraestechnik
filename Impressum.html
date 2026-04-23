@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<title>Impressum & Datenschutz · Penner Frästechnik</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --ink:#141210; --ink-2:#2a2824; --ink-3:#6b655e; --line:#e6e1d9;
+    --bg:#f6f2ea; --bg-2:#ece6dc; --accent:oklch(0.68 0.17 50); --accent-ink:#fff;
+    --dark:#1a1815; --on-dark:#f6f2ea; --on-dark-2:#9a9287;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif; color:var(--ink); background:var(--bg); line-height:1.55; font-size:16px; -webkit-font-smoothing:antialiased;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1280px; margin:0 auto; padding:0 48px;}
+  .mono{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase;}
+  .serif{font-family:'Fraunces',serif; font-style:italic; font-weight:400;}
+
+  /* NAV */
+  nav.top{position:sticky; top:0; z-index:50; background:rgba(246,242,234,0.85); backdrop-filter:blur(12px); border-bottom:1px solid var(--line);}
+  nav.top .inner{display:flex; align-items:center; justify-content:space-between; height:68px;}
+  nav.top .logo img{height:36px; width:auto; display:block;}
+  nav.top .back{display:flex; align-items:center; gap:8px; font-size:14px; color:var(--ink-3);}
+  nav.top .back:hover{color:var(--accent);}
+
+  /* HERO */
+  .hero{padding:96px 0 48px;}
+  .kicker{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-3); margin-bottom:24px; display:flex; align-items:center; gap:12px;}
+  .kicker::before{content:""; width:24px; height:1px; background:var(--ink-3);}
+  h1{font-family:'Fraunces',serif; font-weight:300; font-size:clamp(48px,7vw,96px); line-height:0.95; letter-spacing:-0.025em; margin:0 0 24px;}
+  h1 em{font-style:italic; color:var(--accent);}
+  .lede{font-size:18px; color:var(--ink-2); max-width:60ch; line-height:1.5;}
+
+  /* LAYOUT */
+  .legal-wrap{display:grid; grid-template-columns:280px 1fr; gap:80px; padding:48px 0 120px; align-items:start;}
+  aside.toc{position:sticky; top:100px; border-top:1px solid var(--line); padding-top:20px;}
+  aside.toc h4{font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; color:var(--ink-3); letter-spacing:0.08em; margin-bottom:16px; font-weight:500;}
+  aside.toc a{display:flex; gap:12px; padding:8px 0; color:var(--ink-2); font-size:14px; border-bottom:1px solid transparent;}
+  aside.toc a:hover{color:var(--accent);}
+  aside.toc .num{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-3); min-width:24px;}
+
+  main.legal-body{max-width:72ch;}
+  section.block{padding:40px 0; border-top:1px solid var(--line);}
+  section.block:first-child{border-top:none; padding-top:0;}
+  section.block h2{font-family:'Fraunces',serif; font-weight:300; font-size:40px; line-height:1.05; letter-spacing:-0.02em; margin-bottom:8px;}
+  section.block .num{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--accent); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:16px; display:block;}
+  section.block h3{font-size:15px; font-weight:600; margin:24px 0 8px; color:var(--ink);}
+  section.block p{color:var(--ink-2); margin-bottom:14px; line-height:1.6;}
+  section.block ul{list-style:none; margin-bottom:16px;}
+  section.block ul li{padding:6px 0 6px 18px; position:relative; color:var(--ink-2); line-height:1.5;}
+  section.block ul li::before{content:""; position:absolute; left:0; top:14px; width:8px; height:1px; background:var(--accent);}
+  section.block a{color:var(--accent); border-bottom:1px solid rgba(0,0,0,0.1);}
+  section.block a:hover{border-bottom-color:var(--accent);}
+
+  .info-card{background:var(--bg-2); border:1px solid var(--line); padding:28px; margin:16px 0 20px;}
+  .info-card .label{font-family:'JetBrains Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-3); margin-bottom:4px;}
+  .info-card .val{font-size:16px; color:var(--ink); margin-bottom:14px;}
+  .info-card .val:last-child{margin-bottom:0;}
+  .info-card .val b{font-weight:600;}
+
+  .vat{display:inline-block; font-family:'JetBrains Mono',monospace; font-size:14px; padding:8px 14px; background:var(--bg-2); border:1px solid var(--line); color:var(--ink); letter-spacing:0.06em;}
+
+  /* FOOTER */
+  footer{background:var(--ink); color:var(--on-dark); padding:60px 0 28px; margin-top:0;}
+  footer .foot-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px;}
+  footer .brand img{height:40px; width:auto; display:block; filter:brightness(0) invert(1);}
+  footer .meta{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--on-dark-2); text-transform:uppercase; letter-spacing:0.06em;}
+  footer .legal-links{display:flex; gap:24px; font-size:13px;}
+  footer .legal-links a{color:var(--on-dark-2);}
+  footer .legal-links a:hover{color:var(--accent);}
+  footer .foot-bot{margin-top:40px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.08); font-size:12px; color:var(--on-dark-2); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;}
+
+  @media (max-width:900px){
+    .wrap{padding:0 24px;}
+    .legal-wrap{grid-template-columns:1fr; gap:40px;}
+    aside.toc{position:static;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top">
+  <div class="wrap inner">
+    <a href="Penner Fraestechnik.html" class="logo">
+      <img src="assets/logo.png" alt="Penner Frästechnik"/>
+    </a>
+    <a href="Penner Fraestechnik.html" class="back">
+      <span>← Zurück zur Startseite</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Rechtliche Hinweise · Stand 2026</div>
+    <h1>Impressum<br/>&amp; <em>Datenschutz</em></h1>
+    <p class="lede">Alle gesetzlich vorgeschriebenen Angaben gemäß § 5 TMG und Transparenz­anforderungen der DSGVO. Durch die Nutzung unserer Website erklärst du dich mit den hier beschriebenen rechtlichen Grundlagen einverstanden.</p>
+  </div>
+</header>
+
+<!-- BODY -->
+<div class="wrap legal-wrap">
+
+  <aside class="toc">
+    <h4>Inhalt</h4>
+    <a href="#einleitung"><span class="num">01</span>Einleitung</a>
+    <a href="#unternehmen"><span class="num">02</span>Unternehmen</a>
+    <a href="#umsatzsteuer"><span class="num">03</span>Umsatzsteuer</a>
+    <a href="#mstv"><span class="num">04</span>Verantwortlich</a>
+    <a href="#hosting"><span class="num">05</span>Hosting</a>
+    <a href="#cookies"><span class="num">06</span>Cookies</a>
+    <a href="#haftung"><span class="num">07</span>Haftung Inhalte</a>
+    <a href="#links"><span class="num">08</span>Externe Links</a>
+    <a href="#urheber"><span class="num">09</span>Urheberrecht</a>
+    <a href="#datenschutz"><span class="num">10</span>Datenschutz</a>
+    <a href="#streit"><span class="num">11</span>Streitbeilegung</a>
+    <a href="#aenderungen"><span class="num">12</span>Änderungen</a>
+    <a href="#kontakt"><span class="num">13</span>Kontakt</a>
+  </aside>
+
+  <main class="legal-body">
+
+    <section class="block" id="einleitung">
+      <span class="num">01 — Einleitung</span>
+      <h2>Willkommen.</h2>
+      <p>Willkommen bei <b>Penner Frästechnik</b> („wir", „uns"). Dieses Impressum enthält alle gesetzlich vorgeschriebenen Angaben gemäß § 5 TMG und erfüllt die Transparenzanforderungen der DSGVO.</p>
+      <p>Durch die Nutzung unserer Website erklärst du dich mit den hier beschriebenen rechtlichen Grundlagen einverstanden.</p>
+    </section>
+
+    <section class="block" id="unternehmen">
+      <span class="num">02 — Unternehmens­informationen</span>
+      <h2>Wer hinter der Seite steht.</h2>
+      <div class="info-card">
+        <div class="label">Firma</div>
+        <div class="val"><b>Penner Frästechnik</b></div>
+        <div class="label">Inhaber</div>
+        <div class="val">Andre Penner · Einzelunternehmen</div>
+        <div class="label">Telefon</div>
+        <div class="val"><a href="tel:+4915733927868">+49 1573 3927868</a></div>
+        <div class="label">E-Mail</div>
+        <div class="val"><a href="mailto:info@penner-fraestechnik.de">info@penner-frästechnik.de</a></div>
+        <div class="label">Website</div>
+        <div class="val">penner-frästechnik.de</div>
+      </div>
+    </section>
+
+    <section class="block" id="umsatzsteuer">
+      <span class="num">03 — Umsatzsteuer &amp; Handelsregister</span>
+      <h2>Umsatzsteuer-ID.</h2>
+      <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:</p>
+      <div class="vat">DE456617793</div>
+    </section>
+
+    <section class="block" id="mstv">
+      <span class="num">04 — Verantwortlich nach § 18 Abs. 2 MStV</span>
+      <h2>Medien-Verantwortung.</h2>
+      <p><b>Penner Frästechnik</b> — siehe Unternehmensinformationen (Abschnitt 02).</p>
+    </section>
+
+    <section class="block" id="hosting">
+      <span class="num">05 — Hosting &amp; technische Plattform</span>
+      <h2>Wo die Seite liegt.</h2>
+      <h3>Hosting</h3>
+      <p>Die Website wird gehostet bei:</p>
+      <div class="info-card">
+        <div class="val"><b>STRATO AG</b></div>
+        <div class="val">Otto-Ostrowski-Straße 7<br/>10249 Berlin<br/>Deutschland</div>
+      </div>
+      <p>STRATO erfüllt die Vorgaben der DSGVO, betreibt Rechenzentren in Deutschland und bietet eine datenschutzkonforme Auftragsverarbeitung.</p>
+      <h3>Website-Baukasten / Frontend</h3>
+      <p>Diese Website wurde mit <b>Framer</b> erstellt. Framer verarbeitet technisch notwendige Daten (z. B. IP-Adresse, Browserinformationen), um die Seite bereitzustellen.</p>
+    </section>
+
+    <section class="block" id="cookies">
+      <span class="num">06 — Cookies &amp; Tracking</span>
+      <h2>Welche Cookies wir setzen.</h2>
+      <p>Unsere Website verwendet Cookies, um grundlegende Funktionen sicherzustellen und die Nutzung der Seite zu analysieren.</p>
+      <h3>Arten von Cookies</h3>
+      <ul>
+        <li><b>Notwendige Cookies</b> — erforderlich für den technischen Betrieb der Website. Ohne diese kann die Seite nicht korrekt funktionieren.</li>
+        <li><b>Analyse- und Statistik-Cookies</b> (falls aktiviert) — dienen der Verbesserung von Funktionalität und Nutzerfreundlichkeit. Sie werden nur gesetzt, wenn du dem über unser Cookie-Banner zustimmst.</li>
+      </ul>
+      <p>Wir verwenden ein Cookie-Consent-Skript, das die DSGVO-Anforderungen erfüllt (Einwilligung vor Aktivierung nicht-notwendiger Cookies). Durch deine Auswahl im Cookie-Banner kannst du die Einwilligung jederzeit widerrufen.</p>
+    </section>
+
+    <section class="block" id="haftung">
+      <span class="num">07 — Haftung für Inhalte</span>
+      <h2>Sorgfalt ohne Gewähr.</h2>
+      <p>Wir erstellen alle Inhalte dieser Website mit größter Sorgfalt. Trotzdem übernehmen wir keine Gewähr für Vollständigkeit, Richtigkeit oder Aktualität.</p>
+      <p>Gemäß §§ 7–10 TMG sind wir für eigene Inhalte verantwortlich, jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.</p>
+    </section>
+
+    <section class="block" id="links">
+      <span class="num">08 — Haftung für externe Links</span>
+      <h2>Verlinkte Seiten.</h2>
+      <p>Unsere Website enthält Links zu externen Websites. Für deren Inhalte übernehmen wir keine Verantwortung. Für verlinkte Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+    </section>
+
+    <section class="block" id="urheber">
+      <span class="num">09 — Urheberrecht</span>
+      <h2>Unsere Inhalte.</h2>
+      <p>Alle Inhalte auf dieser Website unterliegen dem deutschen Urheberrecht. Die Nutzung, Vervielfältigung oder Bearbeitung ohne schriftliche Zustimmung von Penner Frästechnik ist untersagt.</p>
+    </section>
+
+    <section class="block" id="datenschutz">
+      <span class="num">10 — Datenschutz / DSGVO</span>
+      <h2>Umgang mit deinen Daten.</h2>
+      <p>Wir verarbeiten personenbezogene Daten nur, wenn es gesetzlich erlaubt ist oder eine Einwilligung vorliegt.</p>
+      <h3>Erhobene Daten können sein</h3>
+      <ul>
+        <li>Kontaktinformationen (z. B. Name, E-Mail), wenn du uns schreibst</li>
+        <li>Technische Daten (z. B. IP-Adresse, Browsertyp, Zugriffszeit)</li>
+        <li>Cookie-Informationen gemäß deiner Auswahl</li>
+        <li>Formulardaten (falls Kontaktformular vorhanden ist)</li>
+      </ul>
+      <h3>Rechtsgrundlagen</h3>
+      <ul>
+        <li>Art. 6 Abs. 1 lit. a DSGVO — Einwilligung</li>
+        <li>Art. 6 Abs. 1 lit. b DSGVO — Vertragserfüllung</li>
+        <li>Art. 6 Abs. 1 lit. f DSGVO — berechtigtes Interesse</li>
+      </ul>
+      <h3>Deine Rechte</h3>
+      <ul>
+        <li>Auskunft</li>
+        <li>Berichtigung</li>
+        <li>Löschung</li>
+        <li>Einschränkung</li>
+        <li>Datenübertragbarkeit</li>
+        <li>Widerruf der Einwilligung (mit Wirkung für die Zukunft)</li>
+        <li>Beschwerde bei der Aufsichtsbehörde</li>
+      </ul>
+      <p>Anfragen sendest du an: <a href="mailto:info@penner-fraestechnik.de">info@penner-frästechnik.de</a></p>
+    </section>
+
+    <section class="block" id="streit">
+      <span class="num">11 — Streitbeilegung</span>
+      <h2>Online-Schlichtung.</h2>
+      <p>Die Europäische Kommission bietet eine Plattform zur Online-Streitbeilegung (OS) an: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a></p>
+      <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+    </section>
+
+    <section class="block" id="aenderungen">
+      <span class="num">12 — Änderungen des Impressums</span>
+      <h2>Aktualisierungen.</h2>
+      <p>Dieses Impressum kann jederzeit aktualisiert werden. Änderungen werden mit aktualisiertem Stand auf dieser Seite veröffentlicht.</p>
+    </section>
+
+    <section class="block" id="kontakt">
+      <span class="num">13 — Kontakt</span>
+      <h2>Direkt an Andre Penner.</h2>
+      <div class="info-card">
+        <div class="label">E-Mail</div>
+        <div class="val"><a href="mailto:info@penner-fraestechnik.de">info@penner-frästechnik.de</a></div>
+        <div class="label">Telefon · 24/7</div>
+        <div class="val"><a href="tel:+4915733927868"><b>+49 1573 3927868</b></a></div>
+      </div>
+    </section>
+
+    <section class="block" id="agb">
+      <span class="num">AGB</span>
+      <h2>Allgemeine <em class="serif">Geschäftsbedingungen.</em></h2>
+      <p>Für alle Aufträge gelten die individuell im Angebot vereinbarten Bedingungen. Separate AGB werden auf Anfrage vor Vertragsschluss in Textform übermittelt. Bei Fragen wende dich bitte direkt an Andre Penner.</p>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <a href="Penner Fraestechnik.html" class="brand">
+        <img src="assets/logo.png" alt="Penner Frästechnik"/>
+      </a>
+      <div class="meta">Andre Penner · Neuwied · 24/7</div>
+      <div class="legal-links">
+        <a href="Penner Fraestechnik.html">Startseite</a>
+        <a href="#einleitung">Impressum</a>
+        <a href="#datenschutz">Datenschutz</a>
+        <a href="tel:+4915733927868">Anrufen</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div>© 2026 Andre Penner Frästechnik · Neuwied · Alle Rechte vorbehalten</div>
+      <div>USt-ID: DE456617793</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
