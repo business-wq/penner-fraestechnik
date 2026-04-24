@@ -1083,6 +1083,7 @@
             email: emailEl.value || 'keine@angabe.de',
             _subject: 'Neue Anfrage: ' + (leistungMap[selections[1]] || 'Kontaktformular'),
             _template: 'table',
+            _autoresponse: `Hallo ${nameEl.value},\n\nvielen Dank für Ihre Anfrage! Andre Penner meldet sich innerhalb von 24 Stunden persönlich bei Ihnen — meist schon am gleichen Werktag.\n\nIhre Angaben:\n${msgBody}\n\n---\nAndre Penner Frästechnik\nTelefon: 0157 / 339 27 868\nE-Mail: info@penner-fraestechnik.de\nWebsite: www.penner-fraestechnik.de`,
             message: msgBody
           })
         });
