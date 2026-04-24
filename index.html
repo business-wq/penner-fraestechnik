@@ -842,8 +842,8 @@
             <div class="field"><label>Telefon *</label><input id="fieldTel" type="tel" placeholder="0170 ..." required/></div>
           </div>
           <div class="row">
-            <div class="field"><label>E-Mail</label><input id="fieldEmail" type="email" placeholder="max@…"/></div>
-            <div class="field"><label>PLZ / Ort der Baustelle</label><input id="fieldPlz" type="text" placeholder="10115 Berlin"/></div>
+            <div class="field"><label>E-Mail *</label><input id="fieldEmail" type="email" placeholder="max@…" required/></div>
+            <div class="field"><label>PLZ / Ort der Baustelle *</label><input id="fieldPlz" type="text" placeholder="10115 Berlin" required/></div>
           </div>
           <div class="field"><label>Kurz zum Projekt (optional)</label><textarea id="fieldMsg" placeholder="z.B. Einfamilienhaus Bj. 1985, wir stellen gleichzeitig auf Wärmepumpe um…"></textarea></div>
           <div class="field"><label style="display:flex; align-items:center; gap:8px; text-transform:none; font-family:inherit; font-size:13px; color:var(--on-dark-2);"><input id="fieldDsgvo" type="checkbox" style="width:auto;"/> Ich habe die <a href="impressum.html#datenschutz" style="color:var(--accent);">Datenschutzerklärung</a> gelesen und stimme zu. *</label></div>
@@ -1055,8 +1055,8 @@
       const msgEl = document.getElementById('fieldMsg');
       const dsgvoEl = document.getElementById('fieldDsgvo');
 
-      if (!nameEl.value.trim() || !telEl.value.trim()) {
-        alert('Bitte Name und Telefon ausfüllen.');
+      if (!nameEl.value.trim() || !telEl.value.trim() || !emailEl.value.trim() || !plzEl.value.trim()) {
+        alert('Bitte alle Pflichtfelder ausfüllen (Name, Telefon, E-Mail, PLZ).');
         return;
       }
       if (!dsgvoEl.checked) {
