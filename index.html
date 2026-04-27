@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Penner Frästechnik · Andre Penner — Fußbodenheizung nachträglich einfräsen · Neuwied & Westerwald</title>
 <meta name="description" content="Fußbodenheizung nachträglich einfräsen in Neuwied, Westerwald und Umgebung. Andre Penner Frästechnik — schnell, unkompliziert, 24/7 erreichbar."/>
-<link rel="canonical" href="https://www.penner-fraestechnik.de/"/>
+<link rel="canonical" href="https://penner-frästechnik.de/"/>
 <meta name="robots" content="index, follow"/>
 <meta property="og:title" content="Penner Frästechnik · Fußbodenheizung nachträglich einfräsen"/>
 <meta property="og:description" content="Fußbodenheizung nachträglich einfräsen in Neuwied, Westerwald und Umgebung. Andre Penner Frästechnik — schnell, unkompliziert, 24/7 erreichbar."/>
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://www.penner-fraestechnik.de/"/>
+<meta property="og:url" content="https://penner-frästechnik.de/"/>
 <meta property="og:locale" content="de_DE"/>
 <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
 <link rel="icon" type="image/png" href="/assets/logo.png"/>
@@ -390,6 +390,98 @@
   .toggle-row button{flex:1; padding:6px; background:rgba(255,255,255,0.05); color:var(--on-dark); font-size:11px; font-family:'JetBrains Mono',monospace; text-transform:uppercase;}
   .toggle-row button.active{background:var(--accent); color:var(--accent-ink);}
 
+  /* ───────── RESPONSIVE — TABLET (≤1024) ───────── */
+  @media (max-width:1024px){
+    .wrap{padding:0 28px;}
+    section{padding:96px 0;}
+    .hero{padding:96px 0 60px; min-height:auto;}
+    .hero-grid > div:first-child{max-width:100%;}
+    .hero-visual{opacity:0.18; right:-28%;}
+    .hero-meta{grid-template-columns:repeat(4,1fr); gap:20px;}
+    .hero-meta .cell .v{font-size:36px;}
+    .pillar-grid{grid-template-columns:1fr; gap:1px;}
+    .audience-grid{grid-template-columns:1fr; gap:20px;}
+    .vorteil-grid{grid-template-columns:1fr; gap:48px;}
+    .vorteil-img{aspect-ratio:16/10; min-height:320px; max-height:480px;}
+    .faq-grid{grid-template-columns:1fr; gap:48px;}
+    .step{grid-template-columns:60px 1fr; gap:24px; padding:36px 0;}
+    .step .desc{grid-column:1 / -1; padding-left:84px;}
+    .foot-grid{grid-template-columns:1fr 1fr; gap:40px;}
+  }
+
+  /* ───────── RESPONSIVE — PHONE (≤700) ───────── */
+  @media (max-width:700px){
+    body{font-size:15px;}
+    .wrap{padding:0 20px;}
+    section{padding:72px 0;}
+    .hero{padding:88px 0 48px;}
+    h1{font-size:clamp(40px, 11vw, 64px); line-height:1.0; letter-spacing:-0.03em; max-width:none; margin:18px 0;}
+    .hero-sub{font-size:16px; max-width:none;}
+    .hero-ctas{flex-direction:column; align-items:stretch; gap:10px; margin-top:32px;}
+    .hero-ctas .btn{width:100%; justify-content:center;}
+    .hero-meta{grid-template-columns:repeat(2,1fr); gap:24px 16px; padding-top:24px; margin-top:48px;}
+    .hero-meta .cell .v{font-size:28px;}
+    .hero-meta .cell .l{font-size:11px;}
+    .hero-visual{display:none;}
+
+    .h2{font-size:clamp(30px, 8vw, 44px); line-height:1.05; max-width:none;}
+    .lead{font-size:16px;}
+    .eyebrow{font-size:11px;}
+
+    .pillar{padding:32px 24px;}
+    .audience{padding:32px 24px;}
+    .audience h3{font-size:24px;}
+
+    .vorteil-grid{margin-top:48px; gap:32px;}
+    .vorteil-img{min-height:240px; max-height:320px;}
+    .benefit{padding:20px 0;}
+    .benefit{grid-template-columns:48px 1fr; gap:16px;}
+
+    .step{padding:28px 0; gap:16px;}
+    .stepno{font-size:14px;}
+    .step h3{font-size:22px;}
+    .step .desc{padding-left:0; font-size:14px;}
+
+    .testimonial .quote{font-size:22px;}
+
+    .faq-q{font-size:15px; padding:18px 0;}
+    .faq-a{font-size:14px;}
+
+    .form-card{padding:32px 24px;}
+    .form-q{font-size:24px;}
+    .progress{flex-wrap:wrap;}
+    .progress .seg{min-width:60px;}
+    .options .opt{padding:16px;}
+    .opt .opt-icon{width:40px; height:40px;}
+    .opt .opt-body .t{font-size:15px;}
+    .row{grid-template-columns:1fr; gap:20px;}
+    .nav-step{flex-direction:row; gap:8px;}
+    .nav-step .btn{padding:14px 18px; font-size:14px;}
+
+    footer{padding:56px 0 24px;}
+    .foot-grid{grid-template-columns:1fr; gap:32px;}
+    .foot-claim{font-size:22px;}
+    .foot-bot{flex-direction:column; align-items:flex-start; gap:12px; margin-top:40px; padding-top:28px;}
+    .foot-bot .legal{flex-wrap:wrap; gap:16px;}
+
+    .mobile-cta{display:flex !important; gap:8px; padding:8px;}
+    .mobile-cta .btn{flex:1; justify-content:center; padding:14px 16px; font-size:13px;}
+
+    /* hide tweaks on phone — they don't fit comfortably */
+    .tweaks{width:calc(100vw - 32px); right:16px; left:16px; max-height:70vh; overflow-y:auto;}
+  }
+
+  /* ───────── RESPONSIVE — SMALL PHONE (≤420) ───────── */
+  @media (max-width:420px){
+    .wrap{padding:0 16px;}
+    h1{font-size:clamp(36px, 12vw, 52px);}
+    .h2{font-size:clamp(28px, 9vw, 40px);}
+    .hero-meta{grid-template-columns:1fr 1fr; gap:20px 12px;}
+    .hero-meta .cell .v{font-size:26px;}
+    .progress .seg{font-size:10px; min-width:48px;}
+    .form-card{padding:24px 18px;}
+  }
+
   /* ───────── COOKIE BANNER ───────── */
   #cookie-banner{
     position:fixed; bottom:0; left:0; right:0; z-index:999;
@@ -407,11 +499,7 @@
   .cookie-text p{font-size:13px; color:var(--on-dark-2); margin:0; max-width:60ch;}
   .cookie-text a{color:var(--accent); text-decoration:underline;}
   .cookie-btns{display:flex; gap:10px; flex-wrap:wrap;}
-  .cookie-btns button{
-    padding:9px 18px; font-size:13px; font-family:inherit; cursor:pointer;
-    border-radius:var(--radius); border:1px solid rgba(255,255,255,0.15);
-    transition:background .2s, color .2s;
-  }
+  .cookie-btns button{padding:9px 18px; font-size:13px; font-family:inherit; cursor:pointer; border-radius:var(--radius); border:1px solid rgba(255,255,255,0.15); transition:background .2s, color .2s;}
   .cookie-accept-all{background:var(--accent); color:var(--accent-ink); border-color:var(--accent)!important;}
   .cookie-accept-all:hover{opacity:.9;}
   .cookie-necessary{background:transparent; color:var(--on-dark-2);}
@@ -768,12 +856,12 @@
       </div>
       <div class="step-label">
         <span class="mono">Schritt <span id="stepCount">01</span> / 04</span>
-        <span class="mono step-count" id="stepTag">Wer Sind Sie?</span>
+        <span class="mono step-count" id="stepTag">Leistung</span>
       </div>
 
       <!-- Step 1 -->
       <div class="form-step active" data-step="1">
-        <h3 class="form-q">Was soll passieren?</h3>
+        <h3 class="form-q">Welche Leistung brauchen Sie?</h3>
         <p class="form-hint">Ob Hausbesitzer, Mieter oder Betrieb — wir kümmern uns.</p>
         <div class="options">
           <div class="opt" data-val="fraesen">
@@ -1068,7 +1156,7 @@
       const umfangMap = {raum:'Einzelner Raum (bis 30 m²)', wohnung:'Wohnung/Etage (30–120 m²)', haus:'Komplettes Haus (120–250 m²)', gross:'Mehrfamilien-/Gewerbeobjekt (>250 m²)'};
       const zeitMap = {asap:'So bald wie möglich (< 4 Wochen)', '3mo':'Innerhalb von 3 Monaten', plan:'Ich plane noch'};
 
-      const msgBody = `Neue Anfrage von penner-fraestechnik.de\n\nName: ${nameEl.value}\nTelefon: ${telEl.value}\nE-Mail: ${emailEl.value || '–'}\nPLZ/Ort: ${plzEl.value || '–'}\n\nLeistung: ${leistungMap[selections[1]] || '–'}\nUmfang: ${umfangMap[selections[2]] || '–'}\nZeitfenster: ${zeitMap[selections[3]] || '–'}\n\nNachricht:\n${msgEl.value || '–'}`;
+      const msgBody = `Neue Anfrage von penner-fraestechnik.de\n\nName: ${nameEl.value}\nTelefon: ${telEl.value}\nE-Mail: ${emailEl.value}\nPLZ/Ort: ${plzEl.value}\n\nLeistung: ${leistungMap[selections[1]] || '–'}\nUmfang: ${umfangMap[selections[2]] || '–'}\nZeitfenster: ${zeitMap[selections[3]] || '–'}\n\nNachricht:\n${msgEl.value || '–'}`;
 
       const nextLabel = document.getElementById('nextLabel');
       nextLabel.textContent = 'Wird gesendet…';
@@ -1080,10 +1168,10 @@
           headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
           body: JSON.stringify({
             name: nameEl.value,
-            email: emailEl.value || 'keine@angabe.de',
+            email: emailEl.value,
             _subject: 'Neue Anfrage: ' + (leistungMap[selections[1]] || 'Kontaktformular'),
             _template: 'table',
-            _autoresponse: `Hallo ${nameEl.value},\n\nvielen Dank für Ihre Anfrage! Andre Penner meldet sich innerhalb von 24 Stunden persönlich bei Ihnen — meist schon am gleichen Werktag.\n\nIhre Angaben:\n${msgBody}\n\n---\nAndre Penner Frästechnik\nTelefon: 0157 / 339 27 868\nE-Mail: info@penner-fraestechnik.de\nWebsite: www.penner-fraestechnik.de`,
+            _autoresponse: `Hallo ${nameEl.value},\n\nvielen Dank für Ihre Anfrage! Andre Penner meldet sich innerhalb von 24 Stunden persönlich bei Ihnen — meist schon am gleichen Werktag.\n\nIhre Angaben:\n${msgBody}\n\n---\nAndre Penner Frästechnik\nTelefon: 0157 / 339 27 868\nE-Mail: andrepenner93@web.de\nWebsite: penner-frästechnik.de`,
             message: msgBody
           })
         });
@@ -1146,17 +1234,12 @@
   // COOKIE BANNER
   function cookieConsent(choice){
     localStorage.setItem('cookie_consent', choice);
-    const banner = document.getElementById('cookie-banner');
-    banner.style.transition = 'transform .4s cubic-bezier(.4,0,.2,1)';
-    banner.classList.remove('visible');
+    document.getElementById('cookie-banner').classList.remove('visible');
   }
   window.cookieConsent = cookieConsent;
-
-  (function initCookieBanner(){
+  (function(){
     if (!localStorage.getItem('cookie_consent')) {
-      setTimeout(()=>{
-        document.getElementById('cookie-banner').classList.add('visible');
-      }, 800);
+      setTimeout(()=>{ document.getElementById('cookie-banner').classList.add('visible'); }, 800);
     }
   })();
 
