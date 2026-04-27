@@ -450,9 +450,14 @@
     outline:none; transition:border-color .2s;
   }
   .field input:focus, .field textarea:focus, .field select:focus{border-bottom-color:var(--accent);}
+  .field input.error{border-bottom-color:#ff4d4d;}
+  .field .err-msg{font-size:11px; color:#ff4d4d; margin-top:4px; font-family:'JetBrains Mono',monospace; display:none;}
+  .field input.error ~ .err-msg{display:block;}
   .field textarea{resize:vertical; min-height:80px;}
   .field select{appearance:none; cursor:pointer;}
   .field select option{background:var(--dark-2);}
+  .form-dsgvo-error{font-size:12px; color:#ff4d4d; margin-top:8px; font-family:'JetBrains Mono',monospace; display:none;}
+  .form-dsgvo-error.visible{display:block;}
 
   .nav-step{display:flex; justify-content:space-between; margin-top:40px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.1);}
   .btn-accent{background:var(--accent); color:var(--accent-ink);}
@@ -1098,15 +1103,15 @@
         <p class="form-hint">Wir rufen innerhalb von 24 Stunden zurück — ohne Newsletter, ohne Drumherum.</p>
         <div class="fields">
           <div class="row">
-            <div class="field"><label>Name *</label><input id="fieldName" type="text" placeholder="Max Mustermann" required/></div>
-            <div class="field"><label>Telefon *</label><input id="fieldTel" type="tel" placeholder="0170 ..." required/></div>
+            <div class="field"><label>Name *</label><input id="fieldName" type="text" placeholder="Max Mustermann" autocomplete="name"/><span class="err-msg">Bitte Namen eingeben</span></div>
+            <div class="field"><label>Telefon *</label><input id="fieldTel" type="tel" placeholder="0170 ..." autocomplete="tel"/><span class="err-msg">Bitte Telefonnummer eingeben</span></div>
           </div>
           <div class="row">
-            <div class="field"><label>E-Mail *</label><input id="fieldEmail" type="email" placeholder="max@…" required/></div>
-            <div class="field"><label>PLZ / Ort der Baustelle *</label><input id="fieldPlz" type="text" placeholder="10115 Berlin" required/></div>
+            <div class="field"><label>E-Mail *</label><input id="fieldEmail" type="email" placeholder="max@…" autocomplete="email"/><span class="err-msg">Bitte gültige E-Mail eingeben</span></div>
+            <div class="field"><label>PLZ / Ort der Baustelle *</label><input id="fieldPlz" type="text" placeholder="10115 Berlin"/><span class="err-msg">Bitte PLZ / Ort eingeben</span></div>
           </div>
           <div class="field"><label>Kurz zum Projekt (optional)</label><textarea id="fieldMsg" placeholder="z.B. Einfamilienhaus Bj. 1985, wir stellen gleichzeitig auf Wärmepumpe um…"></textarea></div>
-          <div class="field"><label style="display:flex; align-items:center; gap:8px; text-transform:none; font-family:inherit; font-size:13px; color:var(--on-dark-2);"><input id="fieldDsgvo" type="checkbox" style="width:auto;"/> Ich habe die <a href="impressum.html#datenschutz" style="color:var(--accent);">Datenschutzerklärung</a> gelesen und stimme zu. *</label></div>
+          <div class="field"><label style="display:flex; align-items:center; gap:8px; text-transform:none; font-family:inherit; font-size:13px; color:var(--on-dark-2);"><input id="fieldDsgvo" type="checkbox" style="width:auto;"/> Ich habe die <a href="impressum.html#datenschutz" style="color:var(--accent);">Datenschutzerklärung</a> gelesen und stimme zu. *</label><div class="form-dsgvo-error" id="dsgvoErr">Bitte Datenschutzerklärung bestätigen</div></div>
         </div>
       </div>
 
@@ -1312,14 +1317,15 @@
       const msgEl = document.getElementById('fieldMsg');
       const dsgvoEl = document.getElementById('fieldDsgvo');
 
-      if (!nameEl.value.trim() || !telEl.value.trim() || !emailEl.value.trim() || !plzEl.value.trim()) {
-        alert('Bitte alle Pflichtfelder ausfüllen (Name, Telefon, E-Mail, PLZ).');
-        return;
-      }
-      if (!dsgvoEl.checked) {
-        alert('Bitte stimmen Sie der Datenschutzerklärung zu.');
-        return;
-      }
+      let valid = true;
+      [[nameEl, !nameEl.value.trim()], [telEl, !telEl.value.trim()], [emailEl, !emailEl.value.trim() || !emailEl.value.includes('@')], [plzEl, !plzEl.value.trim()]].forEach(([el, invalid])=>{
+        el.classList.toggle('error', invalid);
+        if (invalid) valid = false;
+      });
+      const dsgvoErr = document.getElementById('dsgvoErr');
+      dsgvoErr.classList.toggle('visible', !dsgvoEl.checked);
+      if (!dsgvoEl.checked) valid = false;
+      if (!valid) return;
 
       const leistungMap = {fraesen:'Nur Einfräsen in Estrich', komplett:'Komplett (Fräsen, Rohr, Verteiler)', unklar:'Beratung'};
       const umfangMap = {raum:'Einzelner Raum (bis 30 m²)', wohnung:'Wohnung/Etage (30–120 m²)', haus:'Komplettes Haus (120–250 m²)', gross:'Mehrfamilien-/Gewerbeobjekt (>250 m²)'};
@@ -1363,6 +1369,16 @@
     }
   });
   backBtn.addEventListener('click', ()=>{ if (cur > 0) { cur--; renderStep(); } });
+
+  // Clear field errors on input
+  ['fieldName','fieldTel','fieldEmail','fieldPlz'].forEach(id=>{
+    document.getElementById(id).addEventListener('input', function(){
+      this.classList.remove('error');
+    });
+  });
+  document.getElementById('fieldDsgvo').addEventListener('change', function(){
+    document.getElementById('dsgvoErr').classList.toggle('visible', !this.checked);
+  });
 
   // COOKIE BANNER
   function cookieConsent(choice){
