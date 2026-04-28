@@ -1120,6 +1120,17 @@
         <button class="btn btn-accent" id="nextBtn"><span id="nextLabel">Weiter</span><span class="arrow">→</span></button>
       </div>
     </div>
+    <form id="nativeFormSubmit" action="https://formsubmit.co/andrepenner93@web.de" method="POST" style="display:none;">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://www.penner-fraestechnik.de/?sent=1#anfrage">
+      <input type="hidden" name="_subject" value="Neue Anfrage">
+      <input type="hidden" name="_autoresponse" value="Vielen Dank für Ihre Anfrage. Andre Penner meldet sich innerhalb von 24 Stunden persönlich bei Ihnen.">
+      <input type="hidden" name="name" value="">
+      <input type="hidden" name="email" value="">
+      <input type="hidden" name="message" value="">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+    </form>
   </div>
 </section>
 
@@ -1266,121 +1277,123 @@
         btn.setAttribute('aria-expanded','true');
       }
     });
-  });
+	  });
 
-  // FORM stepper
-  const steps = Array.from(document.querySelectorAll('.form-step'));
-  const segs = Array.from(document.querySelectorAll('.progress .seg'));
-  const nextBtn = document.getElementById('nextBtn');
-  const backBtn = document.getElementById('backBtn');
-  const stepCountEl = document.getElementById('stepCount');
-  const stepTagEl = document.getElementById('stepTag');
-  const stepTags = ['Leistung', 'Umfang', 'Zeitfenster', 'Kontaktdaten'];
-  let cur = 0;
-  const selections = {};
+	  // FORM stepper
+	  const formCard = document.querySelector('.form-card');
+	  function renderRequestSuccess(){
+	    formCard.innerHTML = `
+	      <div class="success">
+	        <div class="ring">
+	          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+	            <path d="M8 16 l6 6 l10 -12"/>
+	          </svg>
+	        </div>
+	        <h3 class="form-q" style="text-align:center; margin:0 auto 12px;">Anfrage eingegangen.</h3>
+	        <p class="form-hint" style="text-align:center; max-width:42ch; margin:0 auto;">Wir melden uns innerhalb von 24 Stunden persönlich bei Ihnen. Oft schon am gleichen Werktag.</p>
+	      </div>`;
+	  }
 
-  function renderStep(){
-    steps.forEach((s,i)=>s.classList.toggle('active', i===cur));
-    segs.forEach((s,i)=>{
-      s.classList.toggle('active', i===cur);
-      s.classList.toggle('done', i < cur);
-    });
-    stepCountEl.textContent = String(cur+1).padStart(2,'0');
-    stepTagEl.textContent = stepTags[cur] || '';
-    backBtn.style.visibility = cur === 0 ? 'hidden' : 'visible';
-    document.getElementById('nextLabel').textContent = cur === steps.length-1 ? 'Anfrage senden' : 'Weiter';
-  }
+	  if (new URLSearchParams(window.location.search).get('sent') === '1') {
+	    renderRequestSuccess();
+	  } else {
+	    const steps = Array.from(document.querySelectorAll('.form-step'));
+	    const segs = Array.from(document.querySelectorAll('.progress .seg'));
+	    const nextBtn = document.getElementById('nextBtn');
+	    const backBtn = document.getElementById('backBtn');
+	    const stepCountEl = document.getElementById('stepCount');
+	    const stepTagEl = document.getElementById('stepTag');
+	    const stepTags = ['Leistung', 'Umfang', 'Zeitfenster', 'Kontaktdaten'];
+	    let cur = 0;
+	    const selections = {};
 
-  // options click handler per step
-  document.querySelectorAll('.form-step').forEach(stepEl=>{
-    const stepNo = parseInt(stepEl.dataset.step, 10);
-    stepEl.querySelectorAll('.opt').forEach(opt=>{
-      opt.addEventListener('click', ()=>{
-        stepEl.querySelectorAll('.opt').forEach(o=>o.classList.remove('selected'));
-        opt.classList.add('selected');
-        selections[stepNo] = opt.dataset.val;
-        // auto-advance on selection steps
-        setTimeout(()=>{
-          if (cur < steps.length-1 && stepNo === cur+1) { cur++; renderStep(); }
-        }, 260);
-      });
-    });
-  });
+	    function renderStep(){
+	      steps.forEach((s,i)=>s.classList.toggle('active', i===cur));
+	      segs.forEach((s,i)=>{
+	        s.classList.toggle('active', i===cur);
+	        s.classList.toggle('done', i < cur);
+	      });
+	      stepCountEl.textContent = String(cur+1).padStart(2,'0');
+	      stepTagEl.textContent = stepTags[cur] || '';
+	      backBtn.style.visibility = cur === 0 ? 'hidden' : 'visible';
+	      document.getElementById('nextLabel').textContent = cur === steps.length-1 ? 'Anfrage senden' : 'Weiter';
+	    }
 
-  nextBtn.addEventListener('click', async ()=>{
-    if (cur < steps.length-1) { cur++; renderStep(); }
-    else {
-      const nameEl = document.getElementById('fieldName');
-      const telEl = document.getElementById('fieldTel');
-      const emailEl = document.getElementById('fieldEmail');
-      const plzEl = document.getElementById('fieldPlz');
-      const msgEl = document.getElementById('fieldMsg');
-      const dsgvoEl = document.getElementById('fieldDsgvo');
+	    function setNativeField(name, value) {
+	      const field = document.querySelector('#nativeFormSubmit [name="' + name + '"]');
+	      if (field) field.value = value;
+	    }
 
-      let valid = true;
-      [[nameEl, !nameEl.value.trim()], [telEl, !telEl.value.trim()], [emailEl, !emailEl.value.trim() || !emailEl.value.includes('@')], [plzEl, !plzEl.value.trim()]].forEach(([el, invalid])=>{
-        el.classList.toggle('error', invalid);
-        if (invalid) valid = false;
-      });
-      const dsgvoErr = document.getElementById('dsgvoErr');
-      dsgvoErr.classList.toggle('visible', !dsgvoEl.checked);
-      if (!dsgvoEl.checked) valid = false;
-      if (!valid) return;
+	    // options click handler per step
+	    document.querySelectorAll('.form-step').forEach(stepEl=>{
+	      const stepNo = parseInt(stepEl.dataset.step, 10);
+	      stepEl.querySelectorAll('.opt').forEach(opt=>{
+	        opt.addEventListener('click', ()=>{
+	          stepEl.querySelectorAll('.opt').forEach(o=>o.classList.remove('selected'));
+	          opt.classList.add('selected');
+	          selections[stepNo] = opt.dataset.val;
+	          // auto-advance on selection steps
+	          setTimeout(()=>{
+	            if (cur < steps.length-1 && stepNo === cur+1) { cur++; renderStep(); }
+	          }, 260);
+	        });
+	      });
+	    });
 
-      const leistungMap = {fraesen:'Nur Einfräsen in Estrich', komplett:'Komplett (Fräsen, Rohr, Verteiler)', unklar:'Beratung'};
-      const umfangMap = {raum:'Einzelner Raum (bis 30 m²)', wohnung:'Wohnung/Etage (30–120 m²)', haus:'Komplettes Haus (120–250 m²)', gross:'Mehrfamilien-/Gewerbeobjekt (>250 m²)'};
-      const zeitMap = {asap:'So bald wie möglich (< 4 Wochen)', '3mo':'Innerhalb von 3 Monaten', plan:'Ich plane noch'};
+	    nextBtn.addEventListener('click', ()=>{
+	      if (cur < steps.length-1) { cur++; renderStep(); }
+	      else {
+	        const nameEl = document.getElementById('fieldName');
+	        const telEl = document.getElementById('fieldTel');
+	        const emailEl = document.getElementById('fieldEmail');
+	        const plzEl = document.getElementById('fieldPlz');
+	        const msgEl = document.getElementById('fieldMsg');
+	        const dsgvoEl = document.getElementById('fieldDsgvo');
 
-      const msgBody = `Neue Anfrage von penner-fraestechnik.de\n\nName: ${nameEl.value}\nTelefon: ${telEl.value}\nE-Mail: ${emailEl.value}\nPLZ/Ort: ${plzEl.value}\n\nLeistung: ${leistungMap[selections[1]] || '–'}\nUmfang: ${umfangMap[selections[2]] || '–'}\nZeitfenster: ${zeitMap[selections[3]] || '–'}\n\nNachricht:\n${msgEl.value || '–'}`;
+	        let valid = true;
+	        [[nameEl, !nameEl.value.trim()], [telEl, !telEl.value.trim()], [emailEl, !emailEl.value.trim() || !emailEl.value.includes('@')], [plzEl, !plzEl.value.trim()]].forEach(([el, invalid])=>{
+	          el.classList.toggle('error', invalid);
+	          if (invalid) valid = false;
+	        });
+	        const dsgvoErr = document.getElementById('dsgvoErr');
+	        dsgvoErr.classList.toggle('visible', !dsgvoEl.checked);
+	        if (!dsgvoEl.checked) valid = false;
+	        if (!valid) return;
 
-      const nextLabel = document.getElementById('nextLabel');
-      nextLabel.textContent = 'Wird gesendet…';
-      nextBtn.disabled = true;
+	        const leistungMap = {fraesen:'Nur Einfräsen in Estrich', komplett:'Komplett (Fräsen, Rohr, Verteiler)', unklar:'Beratung'};
+	        const umfangMap = {raum:'Einzelner Raum (bis 30 m²)', wohnung:'Wohnung/Etage (30–120 m²)', haus:'Komplettes Haus (120–250 m²)', gross:'Mehrfamilien-/Gewerbeobjekt (>250 m²)'};
+	        const zeitMap = {asap:'So bald wie möglich (< 4 Wochen)', '3mo':'Innerhalb von 3 Monaten', plan:'Ich plane noch'};
 
-      try {
-        const res = await fetch('https://formsubmit.co/ajax/andrepenner93@web.de', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-          body: JSON.stringify({
-            name: nameEl.value,
-            email: emailEl.value,
-            _subject: 'Neue Anfrage: ' + (leistungMap[selections[1]] || 'Kontaktformular'),
-            _template: 'table',
-            _autoresponse: `Hallo ${nameEl.value},\n\nvielen Dank für Ihre Anfrage! Andre Penner meldet sich innerhalb von 24 Stunden persönlich bei Ihnen — meist schon am gleichen Werktag.\n\nIhre Angaben:\n${msgBody}\n\n---\nAndre Penner Frästechnik\nTelefon: 0157 / 339 27 868\nE-Mail: andrepenner93@web.de\nWebsite: penner-frästechnik.de`,
-            message: msgBody
-          })
-        });
-        if (!res.ok) throw new Error('Serverfehler');
-        const card = document.querySelector('.form-card');
-        card.innerHTML = `
-          <div class="success">
-            <div class="ring">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M8 16 l6 6 l10 -12"/>
-              </svg>
-            </div>
-            <h3 class="form-q" style="text-align:center; margin:0 auto 12px;">Anfrage eingegangen.</h3>
-            <p class="form-hint" style="text-align:center; max-width:42ch; margin:0 auto;">Wir melden uns innerhalb von 24 Stunden persönlich bei Ihnen. Oft schon am gleichen Werktag.</p>
-          </div>`;
-      } catch {
-        nextLabel.textContent = 'Fehler — erneut versuchen';
-        nextBtn.disabled = false;
-      }
-    }
-  });
-  backBtn.addEventListener('click', ()=>{ if (cur > 0) { cur--; renderStep(); } });
+	        const msgBody = `Neue Anfrage von penner-fraestechnik.de\n\nName: ${nameEl.value}\nTelefon: ${telEl.value}\nE-Mail: ${emailEl.value}\nPLZ/Ort: ${plzEl.value}\n\nLeistung: ${leistungMap[selections[1]] || '–'}\nUmfang: ${umfangMap[selections[2]] || '–'}\nZeitfenster: ${zeitMap[selections[3]] || '–'}\n\nNachricht:\n${msgEl.value || '–'}`;
 
-  // Clear field errors on input
-  ['fieldName','fieldTel','fieldEmail','fieldPlz'].forEach(id=>{
-    document.getElementById(id).addEventListener('input', function(){
-      this.classList.remove('error');
-    });
-  });
-  document.getElementById('fieldDsgvo').addEventListener('change', function(){
-    document.getElementById('dsgvoErr').classList.toggle('visible', !this.checked);
-  });
+	        const autoresponse = `Hallo ${nameEl.value},\n\nvielen Dank für Ihre Anfrage! Andre Penner meldet sich innerhalb von 24 Stunden persönlich bei Ihnen — meist schon am gleichen Werktag.\n\nIhre Angaben:\n${msgBody}\n\n---\nAndre Penner Frästechnik\nTelefon: 0157 / 339 27 868\nE-Mail: andrepenner93@web.de\nWebsite: penner-fraestechnik.de`;
 
-  // COOKIE BANNER
+	        setNativeField('name', nameEl.value);
+	        setNativeField('email', emailEl.value);
+	        setNativeField('_subject', 'Neue Anfrage: ' + (leistungMap[selections[1]] || 'Kontaktformular'));
+	        setNativeField('_autoresponse', autoresponse);
+	        setNativeField('message', msgBody);
+
+	        const nextLabel = document.getElementById('nextLabel');
+	        nextLabel.textContent = 'Wird gesendet…';
+	        nextBtn.disabled = true;
+	        document.getElementById('nativeFormSubmit').submit();
+	      }
+	    });
+	    backBtn.addEventListener('click', ()=>{ if (cur > 0) { cur--; renderStep(); } });
+
+	    // Clear field errors on input
+	    ['fieldName','fieldTel','fieldEmail','fieldPlz'].forEach(id=>{
+	      document.getElementById(id).addEventListener('input', function(){
+	        this.classList.remove('error');
+	      });
+	    });
+	    document.getElementById('fieldDsgvo').addEventListener('change', function(){
+	      document.getElementById('dsgvoErr').classList.toggle('visible', !this.checked);
+	    });
+	  }
+
+	  // COOKIE BANNER
   function cookieConsent(choice){
     localStorage.setItem('cookie_consent', choice);
     document.getElementById('cookie-banner').classList.remove('visible');
