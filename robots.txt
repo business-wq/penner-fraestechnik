@@ -1,4 +1,49 @@
+# robots.txt — Penner Frästechnik
+# https://www.penner-fraestechnik.de
+
+# ── Alle Standard-Crawler ────────────────────────────────
 User-agent: *
 Allow: /
+Disallow: /.claude/
 
+# ── AI-Such-Crawler explizit erlauben ───────────────────
+# ChatGPT Web-Suche
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Claude (Anthropic)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Bing / Microsoft Copilot
+User-agent: Bingbot
+Allow: /
+
+# Google (AI Overviews)
+User-agent: Googlebot
+Allow: /
+
+# ── Training-Scraper blockieren ─────────────────────────
+# Common Crawl (Massentraining, kein direkter Nutzwert)
+User-agent: CCBot
+Disallow: /
+
+# ByteDance / TikTok
+User-agent: Bytespider
+Disallow: /
+
+# ── Sitemap & llms.txt ──────────────────────────────────
 Sitemap: https://www.penner-fraestechnik.de/sitemap.xml
