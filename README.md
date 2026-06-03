@@ -27,7 +27,7 @@ Beim Absenden des Formulars gehen **zwei** E-Mails raus — beide im Design der 
 | Variable | Pflicht | Default | Beschreibung |
 |----------|:------:|---------|--------------|
 | `RESEND_API_KEY` | **ja** | – | API-Key aus dem Resend-Dashboard |
-| `MAIL_FROM` | nein | `Penner Frästechnik <angebot@simonnikel.cloud>` | Absender. **Die Domain muss in Resend verifiziert sein** (`simonnikel.cloud` ist es bereits). |
+| `MAIL_FROM` | nein | `Penner Frästechnik <penner-fraestechnik@simonnikel.cloud>` | Absender. **Die Domain muss in Resend verifiziert sein** (`simonnikel.cloud` ist es bereits). |
 | `MAIL_TO` | nein | `andrepenner93@web.de` | Empfänger der Lead-Mail (Andre) |
 | `MAIL_BCC` | nein | – | optionale Blindkopie der Lead-Mail (z. B. `info@penner-fraestechnik.de`) |
 | `PORT` | nein | `80` | Port des Servers |

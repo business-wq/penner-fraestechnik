@@ -30,7 +30,7 @@ const PORT = process.env.PORT || 80;
 const PUBLIC_DIR = path.join(__dirname, 'public');
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
-const MAIL_FROM = process.env.MAIL_FROM || 'Penner Frästechnik <angebot@simonnikel.cloud>';
+const MAIL_FROM = process.env.MAIL_FROM || 'Penner Frästechnik <penner-fraestechnik@simonnikel.cloud>';
 const MAIL_TO = process.env.MAIL_TO || 'andrepenner93@web.de';
 const MAIL_BCC = process.env.MAIL_BCC || '';
 
