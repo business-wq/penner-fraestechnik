@@ -27,28 +27,24 @@ Beim Absenden des Formulars gehen **zwei** E-Mails raus — beide im Design der 
 | Variable | Pflicht | Default | Beschreibung |
 |----------|:------:|---------|--------------|
 | `RESEND_API_KEY` | **ja** | – | API-Key aus dem Resend-Dashboard |
-| `MAIL_FROM` | nein | `Penner Frästechnik <angebot@penner-fraestechnik.de>` | Absender. **Die Domain muss in Resend verifiziert sein.** |
+| `MAIL_FROM` | nein | `Penner Frästechnik <angebot@simonnikel.cloud>` | Absender. **Die Domain muss in Resend verifiziert sein** (`simonnikel.cloud` ist es bereits). |
 | `MAIL_TO` | nein | `andrepenner93@web.de` | Empfänger der Lead-Mail (Andre) |
 | `MAIL_BCC` | nein | – | optionale Blindkopie der Lead-Mail (z. B. `info@penner-fraestechnik.de`) |
 | `PORT` | nein | `80` | Port des Servers |
 
-## Wichtig: Absender-Domain in Resend verifizieren
+## Absender-Domain in Resend
 
-Damit die Mails ankommen (und nicht im Spam landen), muss die Domain aus
-`MAIL_FROM` in Resend verifiziert sein:
+Der Standard-Absender liegt auf **`simonnikel.cloud`** — diese Domain ist in
+Resend bereits verifiziert (SPF/DKIM), die Mails werden also direkt zugestellt.
+Der Anzeigename bleibt „Penner Frästechnik" bzw. „Andre Penner · Frästechnik";
+Antworten gehen per `Reply-To` an Andre bzw. an den Kunden.
+
+Wenn später aus Branding-Gründen über **`@penner-fraestechnik.de`** versendet
+werden soll, muss zuerst diese Domain in Resend verifiziert werden:
 
 > Resend-Dashboard → **Domains** → *Add Domain* → `penner-fraestechnik.de` →
-> die angezeigten **SPF/DKIM-DNS-Einträge** beim Domain-Provider eintragen.
-
-Zum schnellen Testen ohne Domain-Verifizierung kann vorübergehend der
-Resend-Testabsender genutzt werden:
-
-```
-MAIL_FROM=Penner Frästechnik <onboarding@resend.dev>
-```
-
-(Der Testabsender stellt nur an die eigene Resend-Konto-Adresse zu — für echte
-Kundenbestätigungen ist die verifizierte Domain nötig.)
+> die angezeigten **SPF/DKIM-DNS-Einträge** beim Domain-Provider eintragen —
+> danach `MAIL_FROM=Penner Frästechnik <angebot@penner-fraestechnik.de>` setzen.
 
 ## Lokal starten
 
