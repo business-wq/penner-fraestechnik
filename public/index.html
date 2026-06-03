@@ -459,6 +459,9 @@
   .field select option{background:var(--dark-2);}
   .form-dsgvo-error{font-size:12px; color:#ff4d4d; margin-top:8px; font-family:'JetBrains Mono',monospace; display:none;}
   .form-dsgvo-error.visible{display:block;}
+  .form-send-error{font-size:13px; color:#ff6b5e; margin:18px 0 0; font-family:'JetBrains Mono',monospace; line-height:1.5; display:none;}
+  .form-send-error.visible{display:block;}
+  .form-send-error a{color:var(--accent); text-decoration:underline;}
 
   .nav-step{display:flex; justify-content:space-between; margin-top:40px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.1);}
   .btn-accent{background:var(--accent); color:var(--accent-ink);}
@@ -1119,25 +1122,16 @@
           </div>
           <div class="field"><label>Kurz zum Projekt (optional)</label><textarea id="fieldMsg" placeholder="z.B. Einfamilienhaus Bj. 1985, wir stellen gleichzeitig auf Wärmepumpe um…"></textarea></div>
           <div class="field"><label style="display:flex; align-items:center; gap:8px; text-transform:none; font-family:inherit; font-size:13px; color:var(--on-dark-2);"><input id="fieldDsgvo" type="checkbox" style="width:auto;"/> Ich habe die <a href="impressum.html#datenschutz" style="color:var(--accent);">Datenschutzerklärung</a> gelesen und stimme zu. *</label><div class="form-dsgvo-error" id="dsgvoErr">Bitte Datenschutzerklärung bestätigen</div></div>
+          <input type="text" id="hpField" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;">
         </div>
       </div>
 
+      <div class="form-send-error" id="sendErr">Senden fehlgeschlagen. Bitte versuchen Sie es erneut — oder rufen Sie uns an: <a href="tel:+4915733927868">0157 / 339 27 868</a>.</div>
       <div class="nav-step">
         <button class="btn btn-outline" id="backBtn" style="visibility:hidden;"><span>← Zurück</span></button>
         <button class="btn btn-accent" id="nextBtn"><span id="nextLabel">Weiter</span><span class="arrow">→</span></button>
       </div>
     </div>
-    <form id="nativeFormSubmit" action="https://formsubmit.co/andrepenner93@web.de" method="POST" style="display:none;">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://www.penner-fraestechnik.de/?sent=1#anfrage">
-      <input type="hidden" name="_subject" value="Neue Anfrage">
-      <input type="hidden" name="_autoresponse" value="Vielen Dank für Ihre Anfrage. Andre Penner meldet sich innerhalb von 24 Stunden persönlich bei Ihnen.">
-      <input type="hidden" name="name" value="">
-      <input type="hidden" name="email" value="">
-      <input type="hidden" name="message" value="">
-      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-    </form>
   </div>
 </section>
 
@@ -1326,65 +1320,57 @@
 	      document.getElementById('nextLabel').textContent = cur === steps.length-1 ? 'Anfrage senden' : 'Weiter';
 	    }
 
-	    function setNativeField(name, value) {
-	      const field = document.querySelector('#nativeFormSubmit [name="' + name + '"]');
-	      if (field) field.value = value;
-	    }
-
-	    // options click handler per step
-	    document.querySelectorAll('.form-step').forEach(stepEl=>{
-	      const stepNo = parseInt(stepEl.dataset.step, 10);
-	      stepEl.querySelectorAll('.opt').forEach(opt=>{
-	        opt.addEventListener('click', ()=>{
-	          stepEl.querySelectorAll('.opt').forEach(o=>o.classList.remove('selected'));
-	          opt.classList.add('selected');
-	          selections[stepNo] = opt.dataset.val;
-	          // auto-advance on selection steps
-	          setTimeout(()=>{
-	            if (cur < steps.length-1 && stepNo === cur+1) { cur++; renderStep(); }
-	          }, 260);
-	        });
+	    nextBtn.addEventListener('click', async ()=>{
+	      if (cur < steps.length-1) { cur++; renderStep(); return; }
+	
+	      const nameEl = document.getElementById('fieldName');
+	      const telEl = document.getElementById('fieldTel');
+	      const emailEl = document.getElementById('fieldEmail');
+	      const plzEl = document.getElementById('fieldPlz');
+	      const msgEl = document.getElementById('fieldMsg');
+	      const dsgvoEl = document.getElementById('fieldDsgvo');
+	
+	      let valid = true;
+	      [[nameEl, !nameEl.value.trim()], [telEl, !telEl.value.trim()], [emailEl, !emailEl.value.trim() || !emailEl.value.includes('@')], [plzEl, !plzEl.value.trim()]].forEach(([el, invalid])=>{
+	        el.classList.toggle('error', invalid);
+	        if (invalid) valid = false;
 	      });
-	    });
-
-	    nextBtn.addEventListener('click', ()=>{
-	      if (cur < steps.length-1) { cur++; renderStep(); }
-	      else {
-	        const nameEl = document.getElementById('fieldName');
-	        const telEl = document.getElementById('fieldTel');
-	        const emailEl = document.getElementById('fieldEmail');
-	        const plzEl = document.getElementById('fieldPlz');
-	        const msgEl = document.getElementById('fieldMsg');
-	        const dsgvoEl = document.getElementById('fieldDsgvo');
-
-	        let valid = true;
-	        [[nameEl, !nameEl.value.trim()], [telEl, !telEl.value.trim()], [emailEl, !emailEl.value.trim() || !emailEl.value.includes('@')], [plzEl, !plzEl.value.trim()]].forEach(([el, invalid])=>{
-	          el.classList.toggle('error', invalid);
-	          if (invalid) valid = false;
+	      const dsgvoErr = document.getElementById('dsgvoErr');
+	      dsgvoErr.classList.toggle('visible', !dsgvoEl.checked);
+	      if (!dsgvoEl.checked) valid = false;
+	      if (!valid) return;
+	
+	      const sendErr = document.getElementById('sendErr');
+	      sendErr.classList.remove('visible');
+	      const nextLabel = document.getElementById('nextLabel');
+	      nextLabel.textContent = 'Wird gesendet …';
+	      nextBtn.disabled = true;
+	
+	      const payload = {
+	        leistung: selections[1] || '',
+	        umfang: selections[2] || '',
+	        zeit: selections[3] || '',
+	        name: nameEl.value.trim(),
+	        tel: telEl.value.trim(),
+	        email: emailEl.value.trim(),
+	        plz: plzEl.value.trim(),
+	        message: msgEl.value.trim(),
+	        dsgvo: dsgvoEl.checked,
+	        company: (document.getElementById('hpField') || {}).value || ''
+	      };
+	
+	      try {
+	        const res = await fetch('/api/quote', {
+	          method: 'POST',
+	          headers: { 'Content-Type': 'application/json' },
+	          body: JSON.stringify(payload)
 	        });
-	        const dsgvoErr = document.getElementById('dsgvoErr');
-	        dsgvoErr.classList.toggle('visible', !dsgvoEl.checked);
-	        if (!dsgvoEl.checked) valid = false;
-	        if (!valid) return;
-
-	        const leistungMap = {fraesen:'Nur Einfräsen in Estrich', komplett:'Komplett (Fräsen, Rohr, Verteiler)', unklar:'Beratung'};
-	        const umfangMap = {raum:'Einzelner Raum (bis 30 m²)', wohnung:'Wohnung/Etage (30–120 m²)', haus:'Komplettes Haus (120–250 m²)', gross:'Mehrfamilien-/Gewerbeobjekt (>250 m²)'};
-	        const zeitMap = {asap:'So bald wie möglich (< 4 Wochen)', '3mo':'Innerhalb von 3 Monaten', plan:'Ich plane noch'};
-
-	        const msgBody = `Neue Anfrage von penner-fraestechnik.de\n\nName: ${nameEl.value}\nTelefon: ${telEl.value}\nE-Mail: ${emailEl.value}\nPLZ/Ort: ${plzEl.value}\n\nLeistung: ${leistungMap[selections[1]] || '–'}\nUmfang: ${umfangMap[selections[2]] || '–'}\nZeitfenster: ${zeitMap[selections[3]] || '–'}\n\nNachricht:\n${msgEl.value || '–'}`;
-
-	        const autoresponse = `Hallo ${nameEl.value},\n\nvielen Dank für Ihre Anfrage! Andre Penner meldet sich innerhalb von 24 Stunden persönlich bei Ihnen — meist schon am gleichen Werktag.\n\nIhre Angaben:\n${msgBody}\n\n---\nAndre Penner Frästechnik\nTelefon: 0157 / 339 27 868\nE-Mail: andrepenner93@web.de\nWebsite: penner-fraestechnik.de`;
-
-	        setNativeField('name', nameEl.value);
-	        setNativeField('email', emailEl.value);
-	        setNativeField('_subject', 'Neue Anfrage: ' + (leistungMap[selections[1]] || 'Kontaktformular'));
-	        setNativeField('_autoresponse', autoresponse);
-	        setNativeField('message', msgBody);
-
-	        const nextLabel = document.getElementById('nextLabel');
-	        nextLabel.textContent = 'Wird gesendet…';
-	        nextBtn.disabled = true;
-	        document.getElementById('nativeFormSubmit').submit();
+	        if (!res.ok) throw new Error('HTTP ' + res.status);
+	        renderRequestSuccess();
+	      } catch (err) {
+	        nextLabel.textContent = 'Anfrage senden';
+	        nextBtn.disabled = false;
+	        sendErr.classList.add('visible');
 	      }
 	    });
 	    backBtn.addEventListener('click', ()=>{ if (cur > 0) { cur--; renderStep(); } });
