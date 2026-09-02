@@ -531,7 +531,10 @@
   .mobile-nav a{display:block; font-size:22px; font-weight:400; padding:16px 0; border-bottom:1px solid var(--line); color:var(--ink); letter-spacing:-0.01em;}
   .mobile-nav a:last-child{border-bottom:none;}
   .mobile-nav .m-cta{margin-top:32px; display:flex; flex-direction:column; gap:10px;}
-  .mobile-nav .m-cta .btn{justify-content:center; padding:16px 24px; font-size:16px;}
+  /* .mobile-nav a setzt color:var(--ink) — für die Buttons zuruecksetzen, sonst
+     steht dunkle Schrift auf dunklem Grund */
+  .mobile-nav .m-cta .btn{justify-content:center; padding:16px 24px; font-size:16px; color:var(--bg); border-bottom:none;}
+  .mobile-nav .m-cta .btn-ghost{color:var(--ink);}
   @media(max-width:700px){
     .nav-hamburger{display:flex;}
     .nav-cta .btn{display:none;}
