@@ -1323,6 +1323,21 @@
 	      document.getElementById('nextLabel').textContent = cur === steps.length-1 ? 'Anfrage senden' : 'Weiter';
 	    }
 
+	    // Auswahl-Kacheln: Klick markiert die Option und springt zum naechsten Schritt
+	    document.querySelectorAll('.form-step').forEach(stepEl=>{
+	      const stepNo = parseInt(stepEl.dataset.step, 10);
+	      stepEl.querySelectorAll('.opt').forEach(opt=>{
+	        opt.addEventListener('click', ()=>{
+	          stepEl.querySelectorAll('.opt').forEach(o=>o.classList.remove('selected'));
+	          opt.classList.add('selected');
+	          selections[stepNo] = opt.dataset.val;
+	          setTimeout(()=>{
+	            if (cur < steps.length-1 && stepNo === cur+1) { cur++; renderStep(); }
+	          }, 260);
+	        });
+	      });
+	    });
+
 	    nextBtn.addEventListener('click', async ()=>{
 	      if (cur < steps.length-1) { cur++; renderStep(); return; }
 	
